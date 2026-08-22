@@ -7,13 +7,6 @@
 .desktop-nav { gap: clamp(15px, 1.65vw, 27px); }
 .desktop-nav a { font-size: .69rem; }
 .header-cta { min-height: 42px; padding-inline: 17px; }
-.hero { min-height: 0; overflow: hidden; }
-.hero-inner { grid-template-columns: 43fr 57fr; gap: 18px; min-height: 490px; padding-block: 34px 24px; }
-.hero-copy h1 { margin: 16px 0; font-size: clamp(3rem, 4.65vw, 4.55rem); }
-.hero-lead { max-width: 540px; line-height: 1.62; font-size: .98rem; }
-.button-row { margin-top: 22px; }
-.hero-visual { margin-right: -18px; filter: drop-shadow(0 22px 30px rgba(13,38,70,.12)); }
-.hero-visual img { width: 100%; max-height: none; object-fit: contain; }
 .stats-section { position: relative; z-index: 2; padding: 0 0 26px; background: white; color: white; }
 .stats-grid { min-height: 102px; padding: 20px 12px; border-radius: 16px; background: var(--navy); box-shadow: 0 14px 35px rgba(7,24,47,.14); }
 .stat-item { display: flex; align-items: center; justify-content: center; gap: 11px; padding: 0 16px; border-right: 1px solid rgba(255,255,255,.13); }
@@ -76,11 +69,6 @@
   .container { width: min(100% - 40px, 900px); }
   .brand { width: 158px; height: 64px; }
   .mobile-panel { top: 74px; height: calc(100dvh - 74px); }
-  .hero-inner { grid-template-columns: 1fr; min-height: 0; padding-block: 48px 22px; }
-  .hero-copy { text-align: center; }
-  .hero-copy .eyebrow, .hero-lead { margin-inline: auto; }
-  .button-row { justify-content: center; }
-  .hero-visual { width: 100%; max-width: 850px; margin: 2px auto 0; }
   .stats-grid { grid-template-columns: repeat(3,1fr); gap: 0; }
   .stat-item { min-height: 72px; }
   .stat-item:nth-child(3) { border-right: 0; }
@@ -95,9 +83,6 @@
   .site-header { height: 70px; }
   .brand { width: 142px; height: 60px; }
   .mobile-panel { inset: 70px 0 0; height: calc(100dvh - 70px); }
-  .hero-inner { padding-block: 38px 15px; }
-  .hero-copy h1 { margin-block: 15px; font-size: clamp(2.55rem, 12vw, 3.75rem); }
-  .hero-visual { margin-top: 14px; }
   .stats-section { padding-bottom: 14px; }
   .stats-grid { grid-template-columns: repeat(2,1fr); padding: 14px 8px; }
   .stat-item { padding: 8px; border-right: 1px solid rgba(255,255,255,.13); }
@@ -116,7 +101,6 @@
 }
 @media (max-width: 390px) {
   .brand { width: 130px; height: 56px; }
-  .hero-copy h1 { font-size: 2.45rem; }
   .stat-item { gap: 7px; }
   .stat-icon { width: 30px; height: 30px; }
   .project-card { height: 370px; }
