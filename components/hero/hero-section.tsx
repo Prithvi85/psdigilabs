@@ -18,6 +18,7 @@ export function HeroSection() {
             width={1279}
             height={304}
             priority
+            style={{ width: "100%", height: "auto" }}
             sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) calc(100vw - 40px), (max-width: 1328px) calc(100vw - 48px), 1280px"
           />
           <Link className="hero-hit-area hero-main-link" href="/#projects" aria-label="View PSDigiLabs projects" />
