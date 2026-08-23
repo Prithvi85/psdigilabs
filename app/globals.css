@@ -47,9 +47,9 @@ svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
 .hero-inner { padding-block: 20px 12px; }
 .hero-image { display: block; width: 100%; height: auto; object-fit: contain; }
 .stats-section { padding: 36px 0; background: var(--navy); color: white; }
-.stats-grid { display: grid; grid-template-columns: repeat(5,1fr); }
-.stats-grid > div { padding: 0 18px; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
-.stats-grid > div:last-child { border: 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(5,1fr); margin-block: 0; list-style: none; }
+.stats-grid > .stat-item { padding: 0 18px; text-align: center; border-right: 1px solid rgba(255,255,255,.12); }
+.stats-grid > .stat-item:last-child { border: 0; }
 .stats-grid strong { display: block; color: #65a5ff; font-size: clamp(1.7rem,3vw,2.35rem); line-height: 1; }
 .stats-grid span { display: block; margin-top: 8px; color: #b8c6d8; font-size: .78rem; line-height: 1.35; }
 .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
@@ -128,13 +128,11 @@ svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 @media (max-width: 1023px) {
   .desktop-nav, .header-cta { display: none; }.mobile-menu-wrap { display: block; }
-  .stats-grid { grid-template-columns: repeat(3,1fr); gap: 28px 0; }.stats-grid > div:nth-child(3) { border: 0; }
   .automation-banner, .about-grid, .contact-grid { grid-template-columns: 1fr; }.about-grid, .contact-grid { gap: 42px; }.skills-grid { grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width: 767px) {
   .container { width: min(100% - 30px, 600px); }.section { padding: 76px 0; }.section-heading { margin-bottom: 38px; }
   .hero-inner { padding-block: 14px 10px; }
-  .stats-grid { grid-template-columns: repeat(2,1fr); }.stats-grid > div:nth-child(3) { border-right: 1px solid rgba(255,255,255,.12); }.stats-grid > div:nth-child(even), .stats-grid > div:last-child { border-right: 0; }.stats-grid > div:last-child { grid-column: 1 / -1; }
   .services-grid { grid-template-columns: 1fr; }.service-card { padding: 24px; }.service-card ul { columns: 1; }.automation-banner { padding: 28px 22px; gap: 26px; }.workflow { min-height: 0; }.workflow svg { transform: rotate(90deg); }
   .project-card { height: 430px; }.slider-control { top: 42%; width: 42px; height: 42px; }.slider-control.previous { left: 9px; }.slider-control.next { right: 9px; }.project-copy { padding: 22px; }
   .skills-grid { grid-template-columns: 1fr; }.skill-card { min-height: 0; }.footer-grid { grid-template-columns: 1fr; gap: 30px; }
