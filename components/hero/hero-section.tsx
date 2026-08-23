@@ -27,7 +27,7 @@ export function HeroSection() {
             className="hero-hit-area hero-resume-link"
             href={PROFILE_DOWNLOAD_URL}
             download={PROFILE_DOWNLOAD_FILENAME}
-            aria-label="Download PSDigiLabs professional profile PDF"
+            aria-label="Download PSDigiLabs Company Profile PDF"
           />
         </div>
       </div>
