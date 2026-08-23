@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PricingCards } from "@/components/pricing/pricing-cards";
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
+export const metadata: Metadata = { title: "Website Development Pricing | PSDigiLabs", description: "Explore India and international starting prices for websites, CMS platforms, e-commerce and custom web applications.", alternates: { canonical: "/pricing" } };
+export default function PricingPage() { return <><Header /><main className="inner-main"><section className="page-hero"><div className="container"><p className="eyebrow">INDIA & INTERNATIONAL PRICING</p><h1>REALISTIC STARTING POINTS.<br />SCOPED FOR YOUR PROJECT.</h1><p>Every project is different. Final pricing depends on scope, functionality, integrations, content, complexity and delivery requirements.</p></div></section><section className="container pricing-content"><PricingCards /></section><section className="custom-quote"><div className="container"><div><p className="eyebrow light-eyebrow">TAILORED DELIVERY</p><h2>Need Something More Custom?</h2><p>Custom functionality, automation, integrations, dashboards and unique workflows can be scoped individually.</p></div><div className="section-actions"><Link className="button button-light" href="/contact?service=custom">REQUEST A CUSTOM QUOTE</Link><Link className="button button-secondary dark-secondary" href="/contact">LET&apos;S CONNECT</Link></div></div></section></main><Footer /></>; }

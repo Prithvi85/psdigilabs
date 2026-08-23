@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/navigation";
+import Link from "next/link";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -29,8 +30,8 @@ export function MobileMenu() {
       {open && (
         <div id="mobile-navigation" className="mobile-panel">
           <nav aria-label="Mobile navigation">
-            {navigation.map((item, index) => <a ref={index === 0 ? firstLink : undefined} key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>)}
-            <a className="button button-primary" href="#contact" onClick={() => setOpen(false)}>LET&apos;S CONNECT</a>
+            {navigation.map((item, index) => <Link ref={index === 0 ? firstLink : undefined} key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
+            <Link className="button button-primary" href="/contact" onClick={() => setOpen(false)}>LET&apos;S CONNECT</Link>
           </nav>
         </div>
       )}

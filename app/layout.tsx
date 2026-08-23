@@ -4,6 +4,7 @@ import "./globals.css";
 
 import "./reference.css";
 import "./rectification.css";
+import { Assistant } from "@/components/chatbot/assistant";
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const siteUrl = "https://www.psdigilabs.in";
 const title = "PSDigiLabs \u2014 Web, Android & Software Testing";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={geist.variable}>
-      <body>{children}</body>
+      <body>{children}<Assistant /></body>
     </html>
   );
 }

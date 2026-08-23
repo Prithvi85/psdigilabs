@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Neon lead storage
+
+Contact enquiries are stored in Neon PostgreSQL through the server-only `/api/leads` route.
+
+1. Create a Neon project.
+2. Copy its pooled, serverless-compatible connection string.
+3. Copy `.env.example` to `.env.local` and set `DATABASE_URL`.
+4. Run `database/migrations/20260823_create_leads.sql` against the Neon database.
+5. Add `DATABASE_URL` to the appropriate Vercel project environments.
+6. Redeploy the application.
+
+Never commit the connection string. The in-memory request throttle is best-effort on serverless infrastructure because separate function instances do not share memory.

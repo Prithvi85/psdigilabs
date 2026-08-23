@@ -7,6 +7,7 @@ import { ProjectsSection } from "@/components/projects/projects-section";
 import { ServicesSection } from "@/components/services/services-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { StatsSection } from "@/components/stats/stats-section";
+import { PricingPreview } from "@/components/pricing/pricing-preview";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <div className="container content-layout">
             <ServicesSection />
             <ProjectsSection />
+            <PricingPreview />
           <aside className="info-sidebar" aria-label="About, skills and contact information">
             <AboutSection />
             <SkillsSection />
