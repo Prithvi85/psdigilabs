@@ -15,4 +15,12 @@ export const projects = [
     description: "Creative photography and films website",
     alt: "CreativeMonks photography and films website homepage",
   },
+  {
+    name: "PSDigiLabs",
+    category: "Development, Testing & Automation",
+    image: "/images/projects/psdigilabs.webp",
+    website: "https://www.psdigilabs.in",
+    description: "Development, testing and automation portfolio showcasing modern web, QA and workflow solutions.",
+    alt: "PSDigiLabs development, testing and automation portfolio homepage",
+  },
 ] as const;
