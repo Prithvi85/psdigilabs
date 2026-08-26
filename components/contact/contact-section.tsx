@@ -1,7 +1,7 @@
 import { Icon } from "@/components/ui/icon";
 
 const contacts = [
-  { icon: "mail" as const, label: "Email", value: "psdigilabs@gmail.com", href: "mailto:psdigilabs@gmail.com" },
+  { icon: "mail" as const, label: "Email", value: "contact@psdigilabs.in", href: "mailto:contact@psdigilabs.in" },
   { icon: "map" as const, label: "Location", value: "Kolkata, India" },
   { icon: "globe" as const, label: "Website", value: "www.psdigilabs.in", href: "https://www.psdigilabs.in" },
 ];

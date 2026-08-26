@@ -16,5 +16,5 @@ export async function POST(request: Request) {
   const allowedService = serviceOptions.some(([id]) => id === lead.service); const allowedBudget = [...indiaBudgets, ...internationalBudgets].includes(lead.budget as never);
   if (lead.full_name.length < 2 || !validEmail(lead.email) || !countries.includes(lead.country as never) || !allowedService || !allowedBudget || lead.project_description.length < 20 || !timelineOptions.includes(lead.preferred_timeline as never) || !validUrl(lead.existing_website)) return Response.json({ message: "Please check the required fields and try again." }, { status: 400 });
   try { await createLead(lead); recent.set(ip, Date.now()); return Response.json({ ok: true }, { status: 201 }); }
-  catch (error) { console.error("Lead persistence failed", { error: error instanceof Error ? error.message : "Unknown database error" }); return Response.json({ message: "We could not securely store your enquiry. Please email psdigilabs@gmail.com." }, { status: 503 }); }
+  catch (error) { console.error("Lead persistence failed", { error: error instanceof Error ? error.message : "Unknown database error" }); return Response.json({ message: "We could not securely store your enquiry. Please email contact@psdigilabs.in." }, { status: 503 }); }
 }
