@@ -6,6 +6,47 @@ const recent = new Map<string, number>();
 const text = (value: unknown, max: number) => typeof value === "string" ? value.trim().slice(0, max) : "";
 const validEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 const validUrl = (value: string) => { if (!value) return true; try { const url = new URL(value); return url.protocol === "http:" || url.protocol === "https:"; } catch { return false; } };
+async function deliverLeadToMake(lead: NewLead): Promise<void> {
+  const webhookUrl = process.env.MAKE_LEAD_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    console.warn("Make lead webhook delivery skipped: MAKE_LEAD_WEBHOOK_URL is not configured");
+    return;
+  }
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: lead.full_name,
+        email: lead.email,
+        phone: lead.phone,
+        country: lead.country,
+        service: lead.service,
+        budget: lead.budget,
+        projectName: lead.project_name,
+        existingWebsite: lead.existing_website,
+        message: lead.project_description,
+        preferredTimeline: lead.preferred_timeline,
+        source: lead.source,
+        submittedAt: lead.created_at,
+      }),
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      console.warn("Make lead webhook delivery failed", { status: response.status });
+      return;
+    }
+
+    console.info("Make lead webhook delivered successfully");
+  } catch (error) {
+    console.warn("Make lead webhook delivery failed", {
+      errorType: error instanceof Error ? error.name : "UnknownError",
+    });
+  }
+}
 
 export async function POST(request: Request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -15,6 +56,11 @@ export async function POST(request: Request) {
   const lead: NewLead = { id: crypto.randomUUID(), full_name: text(input.full_name, 100), email: text(input.email, 254).toLowerCase(), phone: text(input.phone, 30), country: text(input.country, 80), service: text(input.service, 80), budget: text(input.budget, 80), project_name: text(input.project_name, 120), existing_website: text(input.existing_website, 300), project_description: text(input.project_description, 5000), preferred_timeline: text(input.preferred_timeline, 80), source: "website", status: "new", created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
   const allowedService = serviceOptions.some(([id]) => id === lead.service); const allowedBudget = [...indiaBudgets, ...internationalBudgets].includes(lead.budget as never);
   if (lead.full_name.length < 2 || !validEmail(lead.email) || !countries.includes(lead.country as never) || !allowedService || !allowedBudget || lead.project_description.length < 20 || !timelineOptions.includes(lead.preferred_timeline as never) || !validUrl(lead.existing_website)) return Response.json({ message: "Please check the required fields and try again." }, { status: 400 });
-  try { await createLead(lead); recent.set(ip, Date.now()); return Response.json({ ok: true }, { status: 201 }); }
+  try {
+    await createLead(lead);
+    recent.set(ip, Date.now());
+    await deliverLeadToMake(lead);
+    return Response.json({ ok: true }, { status: 201 });
+  }
   catch (error) { console.error("Lead persistence failed", { error: error instanceof Error ? error.message : "Unknown database error" }); return Response.json({ message: "We could not securely store your enquiry. Please email contact@psdigilabs.in." }, { status: 503 }); }
 }
