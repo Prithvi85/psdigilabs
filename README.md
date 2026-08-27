@@ -47,3 +47,15 @@ Contact enquiries are stored in Neon PostgreSQL through the server-only `/api/le
 6. Redeploy the application.
 
 Never commit the connection string. The in-memory request throttle is best-effort on serverless infrastructure because separate function instances do not share memory.
+
+## Lead notification email
+
+After a contact enquiry is stored successfully, the server sends a notification through Resend. Email delivery is intentionally non-transactional: a provider or configuration failure is logged but does not discard the database lead or return an error to the visitor.
+
+1. Add and verify psdigilabs.in (or a dedicated sending subdomain) in Resend.
+2. Publish the SPF and DKIM records supplied by Resend and wait for the domain to show as verified.
+3. Create a Resend API key with sending access.
+4. Configure RESEND_API_KEY, LEAD_NOTIFICATION_TO, and LEAD_NOTIFICATION_FROM in Vercel Production. The domain in LEAD_NOTIFICATION_FROM must match the verified Resend domain.
+5. Redeploy after changing the Vercel environment variables.
+
+Keep all three variables server-only; do not prefix them with NEXT_PUBLIC_.
