@@ -1,22 +1,39 @@
 "use client";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { countries, indiaBudgets, internationalBudgets, serviceOptions, timelineOptions } from "@/data/leads";
 
 type FormState = "idle" | "submitting" | "success" | "error";
+type Gtag = (command: "event", eventName: string, parameters: Record<string, string>) => void;
 export function ContactForm({ initialService = "", initialMarket = "india", initialBudget = "", initialTimeline = "" }: { initialService?: string; initialMarket?: "india" | "international"; initialBudget?: string; initialTimeline?: string }) {
   const [country, setCountry] = useState(initialMarket === "india" ? "India" : "");
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
+  const trackedLeadIds = useRef(new Set<string>());
   const budgets = useMemo(() => country === "India" ? indiaBudgets : internationalBudgets, [country]);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (state === "submitting") return; setState("submitting"); setMessage("");
     const form = event.currentTarget;
     if (!form.reportValidity()) { setState("idle"); return; }
     try {
-      const response = await fetch("/api/leads", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
-      const result = await response.json() as { message?: string };
-      if (!response.ok) throw new Error(result.message || "Unable to send your enquiry.");
+      const formData = Object.fromEntries(new FormData(form));
+      const response = await fetch("/api/leads", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(formData) });
+      const result = await response.json() as { ok?: boolean; leadId?: string; message?: string };
+      const leadId = typeof result.leadId === "string" ? result.leadId.trim() : "";
+      if (response.status !== 201 || result.ok !== true || !leadId) throw new Error(result.message || "Unable to confirm your enquiry was received.");
+      if (!trackedLeadIds.current.has(leadId)) {
+        trackedLeadIds.current.add(leadId);
+        try {
+          const gtag = (window as Window & { gtag?: Gtag }).gtag;
+          gtag?.("event", "generate_lead", {
+            lead_source: "website",
+            service: typeof formData.service === "string" ? formData.service : "",
+            market: formData.country === "India" ? "india" : "international",
+          });
+        } catch {
+          // Analytics must never affect a successfully persisted enquiry.
+        }
+      }
       setState("success"); form.reset();
     } catch (error) { setState("error"); setMessage(error instanceof Error ? error.message : "Unable to send your enquiry."); }
   }

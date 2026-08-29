@@ -24,5 +24,5 @@ export async function POST(request: Request) {
     try { await sendLeadNotification(lead); }
     catch (error) { console.error("Lead notification email failed", { error: error instanceof Error ? error.message : "Unknown email error", leadId: lead.id }); }
   });
-  return Response.json({ ok: true }, { status: 201 });
+  return Response.json({ ok: true, leadId: lead.id }, { status: 201 });
 }
