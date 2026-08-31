@@ -8,26 +8,8 @@ import { ServicesSection } from "@/components/services/services-section";
 import { SkillsSection } from "@/components/skills/skills-section";
 import { StatsSection } from "@/components/stats/stats-section";
 import { PricingPreview } from "@/components/pricing/pricing-preview";
+import { ProcessSection } from "@/components/process/process-section";
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <main>
-        <HeroSection />
-        <StatsSection />
-        <div className="container content-layout">
-            <ServicesSection />
-            <ProjectsSection />
-            <PricingPreview />
-          <aside className="info-sidebar" aria-label="About, skills and contact information">
-            <AboutSection />
-            <SkillsSection />
-            <ContactSection />
-          </aside>
-        </div>
-      </main>
-      <Footer />
-    </>
-  );
+  return <><Header /><main><HeroSection /><StatsSection /><ServicesSection /><ProjectsSection /><ProcessSection /><SkillsSection /><PricingPreview /><AboutSection /><ContactSection /></main><Footer /></>;
 }

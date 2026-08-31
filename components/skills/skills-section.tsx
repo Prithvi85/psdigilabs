@@ -1,7 +1,2 @@
 import { skillCategories } from "@/data/skills";
-
-export function SkillsSection() {
-  return (
-    <section id="skills" className="sidebar-section section-anchor"><p className="eyebrow light-eyebrow">TOOLS &amp; TECHNOLOGIES</p><h2>TECH STACK</h2><div className="skills-grid">{skillCategories.flatMap((category) => category.skills).filter((skill, index, list) => list.indexOf(skill) === index).map((skill) => <span key={skill}>{skill}</span>)}</div></section>
-  );
-}
+export function SkillsSection(){return <section id="skills" className="skills-section section-anchor"><div className="container"><div className="section-heading"><p className="eyebrow">TECHNOLOGY CAPABILITIES</p><h2>TOOLS CHOSEN FOR<br />PRACTICAL DELIVERY.</h2><p>A focused, modern toolkit across product development, data, Android, quality and automation.</p></div><div className="skills-grid">{skillCategories.map((category,index)=><article className="skill-card" key={category.title}><span className="skill-number">{String(index+1).padStart(2,"0")}</span><h3>{category.title}</h3><ul>{category.skills.map((skill)=><li key={skill}>{skill}</li>)}</ul></article>)}</div></div></section>}

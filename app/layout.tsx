@@ -1,12 +1,12 @@
 import Script from "next/script";
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-import "./reference.css";
-import "./rectification.css";
+import "./redesign.css";
 import { Assistant } from "@/components/chatbot/assistant";
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
 const siteUrl = "https://www.psdigilabs.in";
 const title = "PSDigiLabs \u2014 Web, Android & Software Testing";
 const description =
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
-    <html lang="en" className={geist.variable}>
+    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body>
         {children}
         <Assistant />
