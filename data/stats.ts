@@ -1,7 +1,5 @@
 export const stats = [
-  { value: "3+", label: "Projects Completed" },
-  { value: "10+", label: "Years Professional Experience" },
-  { value: "3", label: "Live Websites" },
-  { value: "1", label: "Android App in Development" },
-  { value: "100%", label: "Commitment" },
+  { value: "4+", label: "Projects Completed", icon: "project", frames: ["0", "1", "2", "3", "4+"] },
+  { value: "1+", label: "Android Apps", icon: "mobile", frames: ["0", "1+", "1+", "1+", "1+"] },
+  { value: "100%", label: "Commitment", icon: "test", frames: ["0", "25", "50", "75", "100%"] },
 ] as const;
