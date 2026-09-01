@@ -17,10 +17,11 @@ export function HeroSection() {
             <span>Work Harder.</span>
           </h1>
           <p className="hero-description">
-            PSDigiLabs builds modern websites and Android applications,<br className="hero-copy-break" />
-            strengthens software quality, and connects business workflows<br className="hero-copy-break" />
+            PSDigiLabs builds modern websites and Android applications,{" "}<br className="hero-copy-break" />
+            strengthens software quality, and connects business workflows{" "}<br className="hero-copy-break" />
             through practical automation.
           </p>
+          <div className="hero-mobile-artwork" aria-hidden="true" />
           <div className="hero-actions">
             <Link className="button button-primary" href="/#projects">
               EXPLORE OUR WORK <span aria-hidden="true">&#8594;</span>
