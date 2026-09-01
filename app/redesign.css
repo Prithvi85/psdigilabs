@@ -293,7 +293,13 @@
 }
 
 .hero-mobile-artwork {
+  position: relative;
   display: none;
+  overflow: hidden;
+}
+.hero-mobile-artwork img {
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -320,7 +326,6 @@
     height: clamp(320px, 42vw, 360px);
     display: block;
     margin: 24px 0 28px;
-    background: url('/images/hero/hero-background-devices.png') center / auto 100% no-repeat;
   }
   .hero-actions {
     margin-top: 0;
@@ -355,8 +360,8 @@
     height: clamp(260px, 78vw, 336px);
     display: block;
     margin: 20px -8px 24px;
-    background: url('/images/hero/hero-background-devices.png') right center / auto 100% no-repeat;
   }
+  .hero-mobile-artwork img { object-position: right center; }
   .hero-actions {
     gap: 12px;
     margin-top: 0;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -21,7 +22,9 @@ export function HeroSection() {
             strengthens software quality, and connects business workflows{" "}<br className="hero-copy-break" />
             through practical automation.
           </p>
-          <div className="hero-mobile-artwork" aria-hidden="true" />
+          <div className="hero-mobile-artwork" aria-hidden="true">
+            <Image src="/images/hero/hero-background-devices.png" alt="" fill fetchPriority="high" sizes="(max-width: 767px) calc(100vw - 24px), 720px" quality={75} />
+          </div>
           <div className="hero-actions">
             <Link className="button button-primary" href="/#projects">
               EXPLORE OUR WORK <span aria-hidden="true">&#8594;</span>

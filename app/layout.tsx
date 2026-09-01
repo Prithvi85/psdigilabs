@@ -11,14 +11,37 @@ const siteUrl = "https://www.psdigilabs.in";
 const title = "PSDigiLabs \u2014 Web, Android & Software Testing";
 const description =
   "PSDigiLabs builds modern websites and Android applications and provides manual testing, automation testing and workflow automation solutions.";
+const socialImage = `${siteUrl}/images/branding/psdigilabs-social.jpg`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "PSDigiLabs", url: `${siteUrl}/`, logo: `${siteUrl}/images/branding/logo.png`, description },
+    { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: `${siteUrl}/`, name: "PSDigiLabs", description, publisher: { "@id": `${siteUrl}/#organization` } },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#service`,
+      name: "PSDigiLabs",
+      url: `${siteUrl}/`,
+      image: socialImage,
+      description,
+      provider: { "@id": `${siteUrl}/#organization` },
+      areaServed: ["India", "International"],
+      serviceType: ["Website development", "Android application development", "Manual software testing", "Automation testing", "Workflow automation"],
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
   alternates: { canonical: "/" },
-  openGraph: { title, description, url: siteUrl, siteName: "PSDigiLabs", locale: "en_IN", type: "website" },
-  twitter: { card: "summary_large_image", title, description },
+  openGraph: {
+    title, description, url: siteUrl, siteName: "PSDigiLabs", locale: "en_IN", type: "website",
+    images: [{ url: socialImage, width: 1200, height: 630, alt: "PSDigiLabs digital product engineering" }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   robots: { index: true, follow: true },
 };
 
@@ -28,6 +51,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        />
         {children}
         <Assistant />
 
