@@ -42,22 +42,24 @@ export default function PricingPage() {
         <section className="pricing-study">
           <div className="container pricing-study-inner">
             <div className="pricing-study-copy">
-              <p className="eyebrow">2026 MARKET COMPARISON</p>
+              <p className="eyebrow">
+                2026 INDIA &amp; INTERNATIONAL MARKET COMPARISON
+              </p>
 
               <h2>How Competitive Is PSDigiLabs Pricing?</h2>
 
               <p>
-                We compared our current starting prices with indicative 2026
-                Indian web development market ranges across landing pages,
-                business websites, CMS platforms, e-commerce and custom web
-                applications.
+                We compared PSDigiLabs starting prices with indicative 2026
+                market ranges across India, the United States, United Kingdom,
+                Canada and Australia for landing pages, business websites, CMS
+                platforms, e-commerce and custom web applications.
               </p>
 
               <p>
-                The study shows that PSDigiLabs currently operates toward the
-                low-to-competitive end of the market, with especially strong
-                value in advanced business platforms and custom application
-                development.
+                The study shows that PSDigiLabs delivers international-quality
+                digital solutions at highly competitive prices - cost-efficient
+                in every major market, with exceptional value in advanced
+                platforms and custom application development.
               </p>
             </div>
 
@@ -67,7 +69,7 @@ export default function PricingPage() {
                 href="/downloads/PSDigiLabs_2026_Market_Pricing_Comparative_Study.pptx"
                 download
               >
-                DOWNLOAD COMPARATIVE STUDY
+                DOWNLOAD 2026 PRICING STUDY
               </a>
 
               <Link className="button button-secondary" href="/contact">
