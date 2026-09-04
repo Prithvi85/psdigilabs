@@ -559,3 +559,309 @@
     font-size: 0.7rem;
   }
 }
+/* =========================================================
+   PRICING PAGE — SEO PRICE COMPARISON
+   ========================================================= */
+
+.pricing-seo-comparison {
+  padding: 0 0 88px;
+  background: var(--bg);
+}
+
+.pricing-seo-heading {
+  max-width: 820px;
+  margin-bottom: 34px;
+}
+
+.pricing-seo-heading .eyebrow {
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+
+.pricing-seo-heading h2 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.pricing-seo-heading p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: #526277;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.pricing-comparison-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dbe3ef;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 38px rgba(15, 35, 70, 0.06);
+}
+
+.pricing-comparison-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.pricing-comparison-table th,
+.pricing-comparison-table td {
+  padding: 18px 22px;
+  border-bottom: 1px solid #e6ebf2;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.pricing-comparison-table thead th {
+  color: #ffffff;
+  background: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pricing-comparison-table thead th:first-child {
+  border-top-left-radius: 17px;
+}
+
+.pricing-comparison-table thead th:last-child {
+  border-top-right-radius: 17px;
+}
+
+.pricing-comparison-table tbody th {
+  color: var(--ink);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.pricing-comparison-table tbody td {
+  color: #526277;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.pricing-comparison-table tbody td:last-child {
+  color: var(--blue);
+}
+
+.pricing-comparison-table tbody tr:last-child th,
+.pricing-comparison-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.pricing-comparison-note {
+  max-width: 850px;
+  margin: 18px 0 0;
+  color: #66758a;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 1023px) {
+  .pricing-seo-comparison {
+    padding-bottom: 72px;
+  }
+
+  .pricing-seo-heading {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing-seo-comparison {
+    padding-bottom: 60px;
+  }
+
+  .pricing-seo-heading {
+    margin-bottom: 26px;
+  }
+
+  .pricing-seo-heading h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.9rem, 8vw, 2.45rem);
+  }
+
+  .pricing-seo-heading p:not(.eyebrow) {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .pricing-comparison-table-wrap {
+    border-radius: 14px;
+  }
+
+  .pricing-comparison-table {
+    min-width: 620px;
+  }
+
+  .pricing-comparison-table th,
+  .pricing-comparison-table td {
+    padding: 16px 18px;
+  }
+
+  .pricing-comparison-note {
+    margin-top: 16px;
+    font-size: 0.84rem;
+  }
+}
+/* =========================================================
+   PRICING PAGE — CUSTOM QUOTE CTA ALIGNMENT
+   ========================================================= */
+
+.custom-quote .section-actions {
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.custom-quote .button-light {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .custom-quote .section-actions {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 767px) {
+  .custom-quote .section-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .custom-quote .section-actions .button {
+    width: 100%;
+  }
+}
+/* =========================================================
+   PRICING PAGE — WEBSITE DEVELOPMENT COST FACTORS
+   ========================================================= */
+
+.pricing-cost-factors {
+  padding: 0 0 88px;
+  background: var(--bg);
+}
+
+.pricing-cost-factors-heading {
+  max-width: 820px;
+  margin-bottom: 34px;
+}
+
+.pricing-cost-factors-heading .eyebrow {
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+
+.pricing-cost-factors-heading h2 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.pricing-cost-factors-heading p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 0;
+  color: #526277;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.pricing-cost-factors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pricing-cost-factors-grid article {
+  min-height: 220px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(15, 35, 70, 0.045);
+}
+
+.pricing-cost-factors-grid article > span {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.pricing-cost-factors-grid h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.pricing-cost-factors-grid p {
+  margin: 0;
+  color: #526277;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 1023px) {
+  .pricing-cost-factors {
+    padding-bottom: 72px;
+  }
+
+  .pricing-cost-factors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing-cost-factors {
+    padding-bottom: 60px;
+  }
+
+  .pricing-cost-factors-heading {
+    margin-bottom: 26px;
+  }
+
+  .pricing-cost-factors-heading h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.9rem, 8vw, 2.45rem);
+  }
+
+  .pricing-cost-factors-heading p:not(.eyebrow) {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .pricing-cost-factors-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pricing-cost-factors-grid article {
+    min-height: 0;
+    padding: 24px 22px;
+  }
+
+  .pricing-cost-factors-grid article > span {
+    margin-bottom: 20px;
+  }
+}
