@@ -6,9 +6,9 @@ import { Header } from "@/components/layout/header";
 import { pricingPackages } from "@/data/pricing";
 
 export const metadata: Metadata = {
-  title: "Website Development Pricing | PSDigiLabs",
+  title: "Website Development Cost in India & International Pricing | PSDigiLabs",
   description:
-    "Explore India and international starting prices for websites, CMS platforms, e-commerce and custom web applications.",
+    "Compare 2026 website development costs in India and international markets for landing pages, business websites, CMS platforms, e-commerce and custom web applications.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -214,7 +214,89 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
+        <section
+          className="pricing-faq"
+          aria-labelledby="pricing-faq-heading"
+        >
+          <div className="container">
+            <div className="pricing-faq-heading">
+              <p className="eyebrow">PRICING FAQS</p>
 
+              <h2 id="pricing-faq-heading">
+                Website Development Pricing Questions
+              </h2>
+
+              <p>
+                Clear answers to common questions about website development
+                pricing, project scope and ongoing support.
+              </p>
+            </div>
+
+            <div className="pricing-faq-list">
+              <details>
+                <summary>How much does website development cost in India?</summary>
+                <p>
+                  PSDigiLabs website development starts from ₹8,000+ for a
+                  landing page and varies according to project type, scope,
+                  functionality, integrations and delivery requirements.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  How much does website development cost for international
+                  clients?
+                </summary>
+                <p>
+                  International website development starts from $199+ for a
+                  landing page. Final pricing depends on the project scope,
+                  functionality, integrations, content requirements and level
+                  of customisation.
+                </p>
+              </details>
+
+              <details>
+                <summary>
+                  Are PSDigiLabs international prices direct currency
+                  conversions?
+                </summary>
+                <p>
+                  No. India and international prices are separate
+                  market-specific starting points rather than direct currency
+                  conversions.
+                </p>
+              </details>
+
+              <details>
+                <summary>What is included in the starting price?</summary>
+                <p>
+                  The starting price provides an initial planning reference.
+                  Exact inclusions depend on the selected service and project
+                  scope, including design, development, integrations and other
+                  agreed requirements.
+                </p>
+              </details>
+
+              <details>
+                <summary>What affects the final website development cost?</summary>
+                <p>
+                  Final pricing is influenced by project scope, design
+                  complexity, CMS and database requirements, integrations,
+                  custom functionality, automation and ongoing support needs.
+                </p>
+              </details>
+
+              <details>
+                <summary>Do you provide website maintenance after launch?</summary>
+                <p>
+                  Yes. PSDigiLabs offers website maintenance from ₹3,000+ per
+                  month for India projects and $99+ per month for international
+                  projects, depending on the required level of support.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
         <section className="custom-quote">
           <div className="container">
             <div>

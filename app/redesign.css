@@ -865,3 +865,120 @@
     margin-bottom: 20px;
   }
 }
+/* =========================================================
+   PRICING PAGE — FAQ
+   ========================================================= */
+
+.pricing-faq {
+  padding: 88px 0;
+  background: #ffffff;
+}
+
+.pricing-faq-heading {
+  max-width: 820px;
+  margin-bottom: 34px;
+}
+
+.pricing-faq-heading .eyebrow {
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+
+.pricing-faq-heading h2 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.pricing-faq-heading p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 0;
+  color: #526277;
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.pricing-faq-list {
+  max-width: 980px;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-faq-list details {
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-faq-list summary {
+  position: relative;
+  padding: 22px 48px 22px 0;
+  color: var(--ink);
+  font-family: var(--font-heading), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pricing-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.pricing-faq-list summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  color: var(--blue);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.pricing-faq-list details[open] summary::after {
+  content: "−";
+}
+
+.pricing-faq-list details > p {
+  max-width: 820px;
+  margin: -2px 0 22px;
+  padding-right: 48px;
+  color: #526277;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 767px) {
+  .pricing-faq {
+    padding: 60px 0;
+  }
+
+  .pricing-faq-heading {
+    margin-bottom: 26px;
+  }
+
+  .pricing-faq-heading h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.9rem, 8vw, 2.45rem);
+  }
+
+  .pricing-faq-heading p:not(.eyebrow) {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .pricing-faq-list summary {
+    padding: 20px 42px 20px 0;
+    font-size: 0.96rem;
+  }
+
+  .pricing-faq-list details > p {
+    margin-bottom: 20px;
+    padding-right: 32px;
+    font-size: 0.9rem;
+  }
+}
