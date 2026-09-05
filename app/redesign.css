@@ -356,12 +356,21 @@
     line-height: 1.5;
   }
   .hero-mobile-artwork {
-    width: calc(100% + 16px);
-    height: clamp(260px, 78vw, 336px);
-    display: block;
-    margin: 20px -8px 24px;
-  }
-  .hero-mobile-artwork img { object-position: right center; }
+  width: calc(100% + 40px);
+  height: clamp(270px, 78vw, 330px);
+  display: block;
+  margin: 20px -20px 24px;
+  overflow: hidden;
+}
+.hero-mobile-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: translateX(-13%) scale(1.35);
+  transform-origin: center center;
+}
+}
   .hero-actions {
     gap: 12px;
     margin-top: 0;
@@ -377,7 +386,7 @@
   .hero-signature {
     margin-top: 20px;
   }
-}
+
 
 @media (max-width: 389px) {
   .hero-copy h1 {
