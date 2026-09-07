@@ -8,7 +8,14 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="PSDigiLabs home">
-          <Image src="/images/branding/logo.png" alt="PSDigiLabs" width={1302} height={1208} sizes="(max-width: 767px) 164px, 225px" />
+          <Image
+            src="/images/branding/logo.png"
+            alt="PSDigiLabs"
+            width={1302}
+            height={1208}
+            sizes="(max-width: 767px) 164px, 225px"
+            className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform"
+          />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}

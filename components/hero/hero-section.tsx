@@ -1,38 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import {
   PROFILE_DOWNLOAD_FILENAME,
   PROFILE_DOWNLOAD_URL,
 } from "@/data/downloads";
 
 export const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
-
-  const muteVideo = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = true;
-    setIsMuted(true);
-  };
-
-  const handleSoundToggle = async () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-
-    if (!video.muted) {
-      try {
-        await video.play();
-      } catch {
-        video.muted = true;
-        setIsMuted(true);
-      }
-    }
-  };
-
   const handleExploreWork = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     document.getElementById("projects")?.scrollIntoView({
@@ -42,56 +15,6 @@ export const HeroSection = () => {
     window.history.pushState(null, "", "#projects");
   };
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.play().catch(() => undefined);
-
-    const enableAudioAfterInteraction = () => {
-      const activeVideo = videoRef.current;
-      if (!activeVideo) return;
-
-      activeVideo.muted = false;
-      setIsMuted(false);
-
-      activeVideo.play().catch(() => {
-        activeVideo.muted = true;
-        setIsMuted(true);
-      });
-    };
-
-    const handleNavigationClick = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Element)) return;
-
-      const href = target.closest("a")?.getAttribute("href");
-
-      if (
-        href === "#pricing" ||
-        href === "#contact" ||
-        href === "/pricing" ||
-        href === "/contact"
-      ) {
-        muteVideo();
-      }
-    };
-
-    window.addEventListener("pointerdown", enableAudioAfterInteraction, {
-      once: true,
-    });
-    window.addEventListener("keydown", enableAudioAfterInteraction, {
-      once: true,
-    });
-    document.addEventListener("click", handleNavigationClick);
-
-    return () => {
-      window.removeEventListener("pointerdown", enableAudioAfterInteraction);
-      window.removeEventListener("keydown", enableAudioAfterInteraction);
-      document.removeEventListener("click", handleNavigationClick);
-    };
-  }, []);
 
   return (
     <section
@@ -101,7 +24,6 @@ export const HeroSection = () => {
       {/* 1. Full-Bleed Edge-to-Edge Background Video Canvas */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none select-none">
         <video
-          ref={videoRef}
           autoPlay
           loop
           muted
@@ -114,43 +36,7 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#eaf2fd] via-[#eaf2fd]/85 sm:via-[#eaf2fd]/70 to-transparent w-full md:w-[62%] lg:w-[52%]" />
       </div>
 
-      {/* 2. Floating Audio Button */}
-      <button
-        type="button"
-        aria-label={isMuted ? "Turn sound on" : "Turn sound off"}
-        aria-pressed={!isMuted}
-        onClick={handleSoundToggle}
-        className="absolute top-5 right-6 z-40 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-blue-400/30 bg-[#0c3882] text-white shadow-lg transition-colors hover:bg-[#1769e0] focus:outline-none focus:ring-2 focus:ring-[#38bdf8] focus:ring-offset-2 focus:ring-offset-[#eaf2fd] active:scale-95 cursor-pointer"
-      >
-        {isMuted ? (
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="h-5 w-5"
-          >
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <path d="m23 9-6 6M17 9l6 6" />
-          </svg>
-        ) : (
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="h-5 w-5"
-          >
-            <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-            <path d="M18.5 5.5a9 9 0 0 1 0 13" />
-          </svg>
-        )}
-      </button>
-
-      {/* 3. Left-Aligned Typography & Live Interactive Buttons */}
+      {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 lg:px-14 py-16 md:py-24">
         <div className="max-w-[540px] text-left">
           
