@@ -38,7 +38,7 @@ export const HeroSection = () => {
 
       {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 lg:px-14 py-16 md:py-24">
-        <div className="max-w-[540px] text-left">
+        <div className="max-w-[540px] text-left rounded-2xl p-4 sm:p-6 bg-[#eaf2fd]/85 backdrop-blur-md border border-white/60 shadow-sm md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none md:p-0">
           
           {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
           <div className="mb-5">
@@ -49,13 +49,13 @@ export const HeroSection = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black tracking-tight text-slate-900 leading-[1.12] mb-4">
+          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black tracking-tight text-slate-950 leading-[1.12] mb-4 drop-shadow-sm">
             Building Digital Products That{" "}
-            <span className="text-[#1769e0]">Work Harder.</span>
+            <span className="text-[#0052cc] md:text-[#1769e0] font-black">Work Harder.</span>
           </h1>
 
           {/* Subparagraph */}
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-8 max-w-lg font-normal">
+          <p className="text-sm sm:text-base text-slate-900 md:text-slate-600 font-medium md:font-normal leading-relaxed mb-8 max-w-lg drop-shadow-sm">
             PSDigiLabs builds modern websites and Android applications, strengthens software quality, and connects business workflows through practical automation.
           </p>
 
