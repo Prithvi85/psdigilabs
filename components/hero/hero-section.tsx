@@ -29,33 +29,33 @@ export const HeroSection = () => {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-[70%_center] sm:object-[75%_center] lg:object-right"
+          className="w-full h-full object-cover object-[82%_center] sm:object-[80%_center] md:object-right"
           src="/videos/hero.mp4"
         />
         {/* Soft edge-masking gradient: ensures live typography stays crisp against background circuitry */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#eaf2fd]/80 via-transparent to-transparent md:bg-gradient-to-r md:from-[#eaf2fd] md:via-[#eaf2fd]/85 md:to-transparent w-full md:w-[62%] lg:w-[52%] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#eaf2fd] via-[#eaf2fd]/80 to-transparent w-full md:w-[60%] pointer-events-none z-10" />
       </div>
 
       {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 lg:px-14 py-16 md:py-24">
-        <div className="max-w-[540px] text-left rounded-2xl p-4 sm:p-6 bg-[#eaf2fd]/85 backdrop-blur-md border border-white/60 shadow-sm md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none md:p-0">
+        <div className="relative z-20 max-w-[540px] pt-4 sm:pt-6 text-left">
           
           {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
           <div className="mb-5">
-            <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0c3882] text-white shadow-sm border border-blue-400/30 text-[11px] font-bold tracking-wider uppercase">
+            <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0b3888] text-white shadow-sm border border-blue-400/30 text-[11px] font-bold tracking-wider uppercase">
               <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" aria-hidden="true" />
               DIGITAL PRODUCT ENGINEERING
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black tracking-tight text-slate-950 leading-[1.12] mb-4 drop-shadow-sm">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-950 leading-tight mb-4">
             Building Digital Products That{" "}
-            <span className="text-[#0052cc] md:text-[#1769e0] font-black">Work Harder.</span>
+            <span className="text-[#1769e0] font-black">Work Harder.</span>
           </h1>
 
           {/* Subparagraph */}
-          <p className="text-sm sm:text-base text-slate-900 md:text-slate-600 font-medium md:font-normal leading-relaxed mb-8 max-w-lg drop-shadow-sm">
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-8 max-w-lg">
             PSDigiLabs builds modern websites and Android applications, strengthens software quality, and connects business workflows through practical automation.
           </p>
 
