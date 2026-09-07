@@ -19,25 +19,25 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="hero-composite-wrapper section-anchor relative w-full overflow-hidden bg-[#eaf2fd] min-h-[720px] sm:min-h-[760px] md:min-h-[640px] lg:min-h-[700px] flex items-start md:items-center"
+      className="hero-composite-wrapper section-anchor relative w-full overflow-hidden bg-[#eaf2fd] min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center"
     >
       {/* 1. Full-Bleed Edge-to-Edge Background Video Canvas */}
-      <div className="absolute inset-x-0 bottom-0 h-[30%] w-full sm:h-[34%] z-0 overflow-hidden pointer-events-none select-none md:inset-0 md:h-full">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none select-none">
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-contain object-center md:object-cover md:object-[75%_center] lg:object-right"
+          className="w-full h-full object-cover object-[70%_center] sm:object-[75%_center] lg:object-right"
           src="/videos/hero.mp4"
         />
         {/* Soft edge-masking gradient: ensures live typography stays crisp against background circuitry */}
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-[#eaf2fd] via-[#eaf2fd]/85 to-transparent md:block md:w-[62%] lg:w-[52%]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#eaf2fd]/80 via-transparent to-transparent md:bg-gradient-to-r md:from-[#eaf2fd] md:via-[#eaf2fd]/85 md:to-transparent w-full md:w-[62%] lg:w-[52%] pointer-events-none" />
       </div>
 
       {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
-      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 pt-14 pb-64 sm:pt-16 sm:pb-72 md:py-24 lg:px-14">
+      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 lg:px-14 py-16 md:py-24">
         <div className="max-w-[540px] text-left">
           
           {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
