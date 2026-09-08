@@ -184,3 +184,62 @@ svg { width: 1.1rem; height: 1.1rem; flex: 0 0 auto; }
 @media(max-width:1023px){.pricing-grid{grid-template-columns:repeat(2,1fr)}.contact-page-grid{grid-template-columns:1fr}.contact-page-grid aside{position:static}.custom-quote .container{align-items:flex-start;flex-direction:column}}
 @media(max-width:767px){.page-hero{padding:56px 0 45px}.pricing-content{padding-block:35px 55px}.pricing-toolbar{align-items:flex-start;flex-direction:column}.pricing-grid,.preview-grid,.form-grid{grid-template-columns:1fr}.pricing-card{padding:24px}.preview-grid article{border-right:0;border-bottom:1px solid var(--line)}.pricing-preview{padding:35px 18px}.contact-page-grid{gap:28px;padding-block:45px 65px}.lead-form{padding:23px 18px}.assistant-root{bottom:max(12px,env(safe-area-inset-bottom));right:15px}.assistant-panel{max-height:calc(100dvh - 76px)}.assistant-launcher b{display:none}.assistant-launcher{padding-right:6px}.quick-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:360px){.market-toggle{width:100%}.market-toggle button{flex:1;padding-inline:8px}.quick-actions{grid-template-columns:1fr}.assistant-body{min-height:280px}}
+
+/* Pricing Comparison Table & SEO Section */
+.pricing-seo-comparison { padding: 64px 0; border-top: 1px solid var(--line); }
+.pricing-seo-heading { max-width: 780px; margin-bottom: 28px; }
+.pricing-seo-heading h2 { margin: 8px 0 14px; font-size: clamp(1.8rem, 3.5vw, 2.5rem); letter-spacing: -.03em; color: var(--navy); }
+.pricing-seo-heading p { margin: 0; color: var(--slate); line-height: 1.65; }
+.pricing-comparison-table-wrap { width: 100%; max-width: 820px; overflow-x: auto; margin: 24px 0; border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: 0 4px 18px rgba(7,24,47,.04); }
+.pricing-comparison-table { width: 100%; border-collapse: collapse; text-align: left; font-size: .88rem; }
+.pricing-comparison-table thead { background: var(--muted); border-bottom: 1px solid var(--line); }
+.pricing-comparison-table th, .pricing-comparison-table td { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.pricing-comparison-table tbody tr:last-child td, .pricing-comparison-table tbody tr:last-child th { border-bottom: 0; }
+.pricing-comparison-table th[scope="col"] { font-weight: 800; font-size: .76rem; letter-spacing: .06em; color: var(--navy); text-transform: uppercase; }
+.pricing-comparison-table th[scope="row"] { font-weight: 600; color: var(--navy); text-align: left; }
+.pricing-comparison-table td { color: #36485e; }
+.pricing-comparison-table th:nth-child(2), .pricing-comparison-table td:nth-child(2),
+.pricing-comparison-table th:nth-child(3), .pricing-comparison-table td:nth-child(3) { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pricing-comparison-note { max-width: 780px; margin-top: 16px; color: var(--slate); font-size: .8rem; line-height: 1.6; }
+
+/* Pricing Cost Factors Section */
+.pricing-cost-factors { padding: 64px 0; background: var(--muted); border-top: 1px solid var(--line); }
+.pricing-cost-factors-heading { max-width: 780px; margin-bottom: 36px; }
+.pricing-cost-factors-heading h2 { margin: 8px 0 14px; font-size: clamp(1.8rem, 3.5vw, 2.5rem); letter-spacing: -.03em; color: var(--navy); }
+.pricing-cost-factors-heading p { margin: 0; color: var(--slate); line-height: 1.65; }
+.pricing-cost-factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pricing-cost-factors-grid article { padding: 26px; border: 1px solid var(--line); border-radius: 14px; background: white; box-shadow: 0 4px 16px rgba(7,24,47,.03); }
+.pricing-cost-factors-grid article span { display: inline-block; margin-bottom: 10px; color: var(--blue); font-size: .78rem; font-weight: 850; letter-spacing: .1em; }
+.pricing-cost-factors-grid article h3 { margin: 0 0 10px; font-size: 1.15rem; color: var(--navy); }
+.pricing-cost-factors-grid article p { margin: 0; color: var(--slate); font-size: .84rem; line-height: 1.6; }
+
+/* Pricing Study & FAQs */
+.pricing-study { padding: 64px 0; background: linear-gradient(125deg, var(--navy), #0a3263); color: white; }
+.pricing-study-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.pricing-study-copy { max-width: 680px; }
+.pricing-study-copy h2 { margin: 8px 0 14px; font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: white; }
+.pricing-study-copy p { margin: 0 0 12px; color: #bdcada; line-height: 1.65; }
+.pricing-study-actions { display: flex; flex-direction: column; gap: 12px; min-width: 260px; }
+.pricing-faq { padding: 72px 0; }
+.pricing-faq-heading { max-width: 720px; margin-bottom: 36px; }
+.pricing-faq-heading h2 { margin: 8px 0 14px; font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--navy); }
+.pricing-faq-heading p { margin: 0; color: var(--slate); line-height: 1.65; }
+.pricing-faq-list { max-width: 820px; display: flex; flex-direction: column; gap: 12px; }
+.pricing-faq-list details { padding: 18px 22px; border: 1px solid var(--line); border-radius: 12px; background: white; transition: .2s ease; }
+.pricing-faq-list details[open] { border-color: #b5d1f7; background: #fafcff; }
+.pricing-faq-list summary { font-size: .94rem; font-weight: 750; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.pricing-faq-list summary::-webkit-details-marker { display: none; }
+.pricing-faq-list summary::after { content: "+"; font-size: 1.25rem; font-weight: 400; color: var(--blue); }
+.pricing-faq-list details[open] summary::after { content: "−"; }
+.pricing-faq-list p { margin: 12px 0 0; color: var(--slate); font-size: .86rem; line-height: 1.65; }
+
+@media (max-width: 1023px) {
+  .pricing-cost-factors-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-study-inner { flex-direction: column; align-items: flex-start; }
+  .pricing-study-actions { width: 100%; flex-direction: row; }
+}
+@media (max-width: 767px) {
+  .pricing-cost-factors-grid { grid-template-columns: 1fr; }
+  .pricing-study-actions { flex-direction: column; }
+  .pricing-comparison-table th, .pricing-comparison-table td { padding: 10px 12px; font-size: .8rem; }
+}
