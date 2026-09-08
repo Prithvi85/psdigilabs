@@ -49,7 +49,7 @@ export const HeroSection = () => {
 
       {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 py-16 md:py-24 lg:px-14">
-        <div className="relative z-20 max-w-[540px] pt-4 text-left sm:pt-6">
+        <div className="relative z-20 max-w-[560px] pt-4 text-left sm:pt-6">
           {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
           <div className="mb-5">
             <span className="inline-flex items-center gap-2.5 rounded-full border border-blue-400/30 bg-[#0b3888] px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
@@ -57,19 +57,19 @@ export const HeroSection = () => {
                 className="h-2 w-2 animate-pulse rounded-full bg-[#38bdf8]"
                 aria-hidden="true"
               />
-              DIGITAL PRODUCT ENGINEERING
+              DIGITAL PRODUCT ENGINEERING &bull; INDIA
             </span>
           </div>
 
-          {/* Headline */}
+          {/* Headline - Aligned with commercial search intent */}
           <h1 className="mb-4 text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-            Building Digital Products That{" "}
+            Website Development &amp; App Solutions That{" "}
             <span className="font-black text-[#1769e0]">Work Harder.</span>
           </h1>
 
-          {/* Subparagraph */}
+          {/* Subparagraph - Keyword-rich value proposition */}
           <p className="mb-8 max-w-lg text-sm leading-relaxed text-slate-700 sm:text-base">
-            PSDigiLabs builds modern websites and Android applications, strengthens software quality, and connects business workflows through practical automation.
+            PSDigiLabs builds custom Next.js websites, native Android applications, automated software testing suites, and workflow automation solutions for businesses in India and worldwide.
           </p>
 
           {/* Action Buttons */}
