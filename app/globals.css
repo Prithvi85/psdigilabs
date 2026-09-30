@@ -1,19 +1,24 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 248, 250, 252;
+}
 
-  body {
-    @apply bg-white text-slate-900 antialiased;
-  }
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* Prevent SVGs from expanding without explicit width/height */
-  svg {
-    display: inline-block;
-    vertical-align: middle;
+/* Base custom utility layers */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
@@ -21,12 +26,13 @@
    Print & PDF Export Styling for Comparison Chart
    ========================================================================== */
 @media print {
+  /* Set clean landscape printable canvas */
   @page {
     size: A4 landscape;
-    margin: 10mm;
+    margin: 12mm;
   }
 
-  /* Hide navigation, footers, buttons, and other site sections when printing */
+  /* Hide navigation, footers, buttons, and other site sections */
   header,
   nav,
   footer,
@@ -36,6 +42,7 @@
     display: none !important;
   }
 
+  /* Force background graphics to render in Chrome/Edge/Firefox PDF export */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -44,8 +51,10 @@
   body {
     background: #ffffff !important;
     color: #0f172a !important;
+    font-size: 11pt;
   }
 
+  /* Isolate comparison chart section */
   .comparison-print-section {
     padding: 0 !important;
     margin: 0 !important;
@@ -53,6 +62,7 @@
     border: none !important;
   }
 
+  /* Prevent page breaks inside table rows */
   table {
     page-break-inside: auto;
     width: 100% !important;
