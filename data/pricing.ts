@@ -3,20 +3,271 @@ export type Market = "india" | "international";
 export type PricingPackage = {
   id: string;
   title: string;
+  badge?: string;
   description: string;
-  price: Record<Market, string>;
+  scopeLabel: string;
+  subtext: string;
+  ctaText: string;
+  billingType: "instant-quote" | "custom-proposal" | "retainer";
   features: readonly string[];
   recommended?: boolean;
 };
 
+export interface MarketComparisonRow {
+  deliverable: string;
+  traditionalAgency: string;
+  freelancer: string;
+  psdigilabs: string;
+}
+
+export interface ComparisonCategory {
+  category: string;
+  items: MarketComparisonRow[];
+}
+
+export interface BaseRate {
+  inr: number;
+  usd: number;
+  timelineDays: number;
+  scopeModifierMax: number;
+}
+
+// 1. Internal Engine Rates (Used behind the scenes to compute automated quotes)
+export const INTERNAL_PACKAGE_RATES: Record<string, BaseRate> = {
+  "landing-page": {
+    inr: 8000,
+    usd: 199,
+    timelineDays: 7,
+    scopeModifierMax: 1.2,
+  },
+  "business-website": {
+    inr: 18000,
+    usd: 449,
+    timelineDays: 14,
+    scopeModifierMax: 1.3,
+  },
+  "cms-pro": {
+    inr: 30000,
+    usd: 749,
+    timelineDays: 21,
+    scopeModifierMax: 1.25,
+  },
+  "advanced-platform": {
+    inr: 45000,
+    usd: 1099,
+    timelineDays: 35,
+    scopeModifierMax: 1.35,
+  },
+  ecommerce: {
+    inr: 40000,
+    usd: 999,
+    timelineDays: 28,
+    scopeModifierMax: 1.3,
+  },
+  "custom-web-application": {
+    inr: 60000,
+    usd: 1499,
+    timelineDays: 45,
+    scopeModifierMax: 1.4,
+  },
+  maintenance: {
+    inr: 3000,
+    usd: 99,
+    timelineDays: 30,
+    scopeModifierMax: 1.0,
+  },
+};
+
+// 2. Public Packages
 export const pricingPackages: readonly PricingPackage[] = [
-  { id: "landing-page", title: "Landing Page", description: "A focused, conversion-ready page for a service, launch or campaign.", price: { india: "₹8,000+", international: "$199+" }, features: ["Professional responsive landing page", "Custom UI implementation", "Contact / enquiry integration", "WhatsApp or social integration where required", "Basic on-page SEO", "Mobile optimisation", "Deployment assistance"] },
-  { id: "business-website", title: "Business Website", description: "A polished multi-page presence designed around your business and customers.", price: { india: "₹18,000+", international: "$449+" }, features: ["Multi-page responsive website", "Custom design implementation", "Contact / lead forms", "Analytics integration", "Basic SEO foundations", "Social integrations", "Deployment configuration"] },
-  { id: "cms-pro", title: "CMS Pro Website", description: "A database-backed website your team can manage through an admin experience.", price: { india: "₹30,000+", international: "$749+" }, features: ["Business website foundations", "Database-backed content", "CMS / admin dashboard", "Content and media management", "Authentication where required", "Structured business data"], recommended: true },
-  { id: "advanced-platform", title: "Advanced Business Platform", description: "Connected workflows and role-based tools for more involved business operations.", price: { india: "₹45,000+", international: "$1,099+" }, features: ["Advanced CMS and admin dashboard", "Customer/admin authentication", "Database workflows", "Email integrations", "Analytics and advanced forms", "Role-based functionality", "Business process integrations"] },
-  { id: "ecommerce", title: "E-commerce Website", description: "A responsive product storefront with practical catalogue and management tools.", price: { india: "₹40,000+", international: "$999+" }, features: ["Product catalogue and management", "Responsive storefront", "Cart / checkout integration", "CMS", "Inventory-oriented functionality where required", "Analytics", "SEO fundamentals"] },
-  { id: "custom-web-application", title: "Custom Web Application", description: "Purpose-built software for workflows that do not fit an off-the-shelf product.", price: { india: "₹60,000+", international: "$1,499+" }, features: ["Custom application architecture", "Database and authentication", "Admin systems", "User workflows", "API integrations", "Automation and dashboards", "Business-specific functionality"] },
-  { id: "maintenance", title: "Website Maintenance", description: "Ongoing technical care and agreed updates after your website goes live.", price: { india: "₹3,000+/month", international: "$99+/month" }, features: ["Routine website updates", "Minor content changes", "Basic technical maintenance", "Bug fixes within agreed scope", "Deployment assistance", "Monitoring assistance"] },
+  {
+    id: "landing-page",
+    title: "Landing Page",
+    badge: "Fast Track",
+    description: "High-converting, performance-tuned single page for product launches, events, or ads.",
+    scopeLabel: "Instant Automated Quote",
+    subtext: "Competitively generated on request",
+    ctaText: "Get Instant Quote",
+    billingType: "instant-quote",
+    features: [
+      "Modern conversion-focused layout",
+      "Mobile-first responsive architecture",
+      "Lead capture / WhatsApp / CRM integration",
+      "Automated on-page SEO & speed scoring",
+      "Full analytics & event tracking setup",
+      "Turnkey domain & cloud hosting deployment",
+    ],
+  },
+  {
+    id: "business-website",
+    title: "Business Website",
+    badge: "Essential",
+    description: "Multi-page digital identity built to communicate authority and capture qualified leads.",
+    scopeLabel: "Instant Automated Quote",
+    subtext: "Competitively generated on request",
+    ctaText: "Get Instant Quote",
+    billingType: "instant-quote",
+    features: [
+      "Multi-page custom design & development",
+      "Brand-aligned design components",
+      "Interactive enquiry workflows & form logic",
+      "Technical SEO foundations & schema tags",
+      "Cross-browser performance optimization",
+      "Continuous build & deployment pipeline",
+    ],
+  },
+  {
+    id: "cms-pro",
+    title: "CMS Pro Website",
+    badge: "Most Popular",
+    description: "Dynamic, database-backed platform allowing non-technical teams to edit all content.",
+    scopeLabel: "Dynamic Scope Quote",
+    subtext: "Calculated based on content models",
+    ctaText: "Calculate Scope & Quote",
+    billingType: "instant-quote",
+    features: [
+      "Complete custom visual frontend",
+      "Intuitive headless CMS / admin panel",
+      "Dynamic collections (Blogs, Case Studies, Team)",
+      "Secure authentication & editor permissions",
+      "Automated backup & staging workflow",
+      "Search, filter, and categorization engines",
+    ],
+    recommended: true,
+  },
+  {
+    id: "advanced-platform",
+    title: "Advanced Business Platform",
+    badge: "Enterprise Grade",
+    description: "Workflow tools, complex portals, and role-based apps for modern operational efficiency.",
+    scopeLabel: "Custom Scoped Proposal",
+    subtext: "Tailored sprint & capability pricing",
+    ctaText: "Request Tailored Proposal",
+    billingType: "custom-proposal",
+    features: [
+      "Multi-role user authentication (RBAC / OAuth)",
+      "Real-time database triggers & backend workflows",
+      "Custom business dashboards & metrics",
+      "Transactional email / SMS pipelines",
+      "Granular audit trails & security hardening",
+      "External API & webhook integrations",
+    ],
+  },
+  {
+    id: "ecommerce",
+    title: "E-Commerce Solution",
+    badge: "Commerce Ready",
+    description: "Storefront built for fast checkout, seamless payments, and simple inventory management.",
+    scopeLabel: "Dynamic Scope Quote",
+    subtext: "Calculated based on SKU & gateway needs",
+    ctaText: "Get Instant Quote",
+    billingType: "instant-quote",
+    features: [
+      "Fast storefront with catalog search & filter",
+      "Secure payment gateway integration",
+      "Cart, checkout, and discount rule engines",
+      "Admin inventory and order dashboard",
+      "Automated customer notification emails",
+      "Conversion tracking (Pixel, GA4, CAPI)",
+    ],
+  },
+  {
+    id: "custom-web-application",
+    title: "Custom Web Application",
+    badge: "Full Custom",
+    description: "Bespoke SaaS products or software workflows engineered to scale without licensing lock-in.",
+    scopeLabel: "Architected Proposal",
+    subtext: "Sprint-scoped competitive estimate",
+    ctaText: "Talk to an Architect",
+    billingType: "custom-proposal",
+    features: [
+      "Full-stack custom software architecture",
+      "High-concurrency database design",
+      "Microservice or serverless API layer",
+      "Enterprise security & access control",
+      "Third-party ERP / CRM integrations",
+      "Dedicated CI/CD & infrastructure scripting",
+    ],
+  },
+  {
+    id: "maintenance",
+    title: "Retainer & Ongoing Support",
+    badge: "Reliability",
+    description: "Proactive security, uptime monitoring, performance tuning, and on-demand updates.",
+    scopeLabel: "Flexible Retainer",
+    subtext: "Adjustable monthly SLA",
+    ctaText: "Select Retainer Scope",
+    billingType: "retainer",
+    features: [
+      "Routine feature updates & bug fixes",
+      "Core dependency & security patches",
+      "Speed, CWV, and SEO health monitoring",
+      "Cloud hosting & domain management",
+      "Guaranteed turnaround SLA response",
+      "Monthly performance & analytics reports",
+    ],
+  },
+] as const;
+
+// 3. Trend-Aligned PDF & Web Deliverable Comparison (No Public Pricing)
+export const pdfComparisonCategories: readonly ComparisonCategory[] = [
+  {
+    category: "Architecture & Code Quality",
+    items: [
+      {
+        deliverable: "Source Code Ownership",
+        traditionalAgency: "Often held hostage / locked into proprietary platforms",
+        freelancer: "Full code, but lacking architecture standards",
+        psdigilabs: "100% Client Ownership with Clean Modular Standards",
+      },
+      {
+        deliverable: "Tech Stack",
+        traditionalAgency: "Heavy legacy themes (e.g., outdated WordPress)",
+        freelancer: "Template builders (Wix, Elementor, Squarespace)",
+        psdigilabs: "Modern Next.js, React, Tailwind & Scalable Serverless APIs",
+      },
+      {
+        deliverable: "Performance & Core Web Vitals",
+        traditionalAgency: "Sub-par (bloated plugins, 40-60 PageSpeed)",
+        freelancer: "Hit or miss (often 50-70 PageSpeed)",
+        psdigilabs: "Optimized 90+ Lighthouse / Sub-second TTFB targets",
+      },
+    ],
+  },
+  {
+    category: "Cost & Scoping Model",
+    items: [
+      {
+        deliverable: "Pricing Methodology",
+        traditionalAgency: "High overhead markups with hidden maintenance fees",
+        freelancer: "Unpredictable hourly billing or arbitrary estimates",
+        psdigilabs: "Transparent algorithmic scoping based on exact deliverables",
+      },
+      {
+        deliverable: "Cost vs. Output Efficiency",
+        traditionalAgency: "Inflated project minimums to cover agency overhead",
+        freelancer: "Cheaper up front, higher rework costs later",
+        psdigilabs: "Highly competitive, value-optimized project milestones",
+      },
+    ],
+  },
+  {
+    category: "Delivery & Post-Launch Assurance",
+    items: [
+      {
+        deliverable: "Turnaround Time",
+        traditionalAgency: "8 – 16 Weeks (Bureaucratic delays)",
+        freelancer: "Inconsistent timelines / availability drops",
+        psdigilabs: "Rapid 1 – 4 Week Agile Sprints",
+      },
+      {
+        deliverable: "Post-Launch Warranty",
+        traditionalAgency: "Paid maintenance contract required immediately",
+        freelancer: "Rarely included once final invoice clears",
+        psdigilabs: "Complimentary warranty period + transparent retainers",
+      },
+    ],
+  },
 ] as const;
 
 export const pricingPreview = [
