@@ -11,6 +11,10 @@ export type PricingPackage = {
   billingType: "instant-quote" | "custom-proposal" | "retainer";
   features: readonly string[];
   recommended?: boolean;
+  price: {
+    india: string | number;
+    international: string | number;
+  };
 };
 
 export interface MarketComparisonRow {
@@ -32,7 +36,7 @@ export interface BaseRate {
   scopeModifierMax: number;
 }
 
-// 1. Internal Engine Rates (Used behind the scenes to compute automated quotes)
+// 1. Internal Engine Rates (Used behind the scenes for auto-quote calculations)
 export const INTERNAL_PACKAGE_RATES: Record<string, BaseRate> = {
   "landing-page": {
     inr: 8000,
@@ -89,6 +93,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Competitively generated on request",
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Modern conversion-focused layout",
       "Mobile-first responsive architecture",
@@ -107,6 +115,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Competitively generated on request",
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Multi-page custom design & development",
       "Brand-aligned design components",
@@ -125,6 +137,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Calculated based on content models",
     ctaText: "Calculate Scope & Quote",
     billingType: "instant-quote",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Complete custom visual frontend",
       "Intuitive headless CMS / admin panel",
@@ -144,6 +160,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Tailored sprint & capability pricing",
     ctaText: "Request Tailored Proposal",
     billingType: "custom-proposal",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Multi-role user authentication (RBAC / OAuth)",
       "Real-time database triggers & backend workflows",
@@ -162,6 +182,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Calculated based on SKU & gateway needs",
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Fast storefront with catalog search & filter",
       "Secure payment gateway integration",
@@ -180,6 +204,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Sprint-scoped competitive estimate",
     ctaText: "Talk to an Architect",
     billingType: "custom-proposal",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Full-stack custom software architecture",
       "High-concurrency database design",
@@ -198,6 +226,10 @@ export const pricingPackages: readonly PricingPackage[] = [
     subtext: "Adjustable monthly SLA",
     ctaText: "Select Retainer Scope",
     billingType: "retainer",
+    price: {
+      india: "On Request",
+      international: "On Request",
+    },
     features: [
       "Routine feature updates & bug fixes",
       "Core dependency & security patches",
@@ -209,7 +241,7 @@ export const pricingPackages: readonly PricingPackage[] = [
   },
 ] as const;
 
-// 3. Trend-Aligned PDF & Web Deliverable Comparison (No Public Pricing)
+// 3. Trend-Aligned Deliverable Comparison Matrix
 export const pdfComparisonCategories: readonly ComparisonCategory[] = [
   {
     category: "Architecture & Code Quality",
@@ -276,6 +308,7 @@ export const pricingPreview = [
   { title: "Custom Web Applications", packageId: "custom-web-application" },
 ] as const;
 
-export function getPricingPackage(id: string) {
-  return pricingPackages.find((item) => item.id === id);
+export function getPricingPackage(id: string): PricingPackage {
+  const pkg = pricingPackages.find((item) => item.id === id);
+  return pkg || pricingPackages[0];
 }
