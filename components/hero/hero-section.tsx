@@ -51,13 +51,13 @@ export const HeroSection = () => {
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 py-16 md:py-24 lg:px-14">
         <div className="relative z-20 max-w-[560px] pt-4 text-left sm:pt-6">
           {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
-          <div className="mb-5">
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-blue-400/30 bg-[#0b3888] px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm">
+          <div className="mb-5 w-fit">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0d233a] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white">
               <span
-                className="h-2 w-2 animate-pulse rounded-full bg-[#38bdf8]"
+                className="h-2 w-2 shrink-0 rounded-full bg-[#2563eb]"
                 aria-hidden="true"
               />
-              DIGITAL PRODUCT ENGINEERING &bull; INDIA
+              DIGITAL PRODUCT ENGINEERING
             </span>
           </div>
 
@@ -73,11 +73,11 @@ export const HeroSection = () => {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
+          <div className="mt-8 flex flex-wrap items-center gap-4 sm:flex-row">
             <a
               href="#projects"
               onClick={handleExploreWork}
-              className="relative z-30 inline-flex cursor-pointer items-center justify-center rounded-full bg-[#1769e0] px-7 py-3.5 text-xs font-bold tracking-wider text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
+              className="relative z-30 inline-flex w-auto cursor-pointer items-center justify-center rounded-full bg-blue-600 px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
             >
               EXPLORE OUR WORK <span className="ml-2 text-sm" aria-hidden="true">&#8594;</span>
             </a>
@@ -85,7 +85,7 @@ export const HeroSection = () => {
             <a
               href={PROFILE_DOWNLOAD_URL}
               download={PROFILE_DOWNLOAD_FILENAME}
-              className="relative z-30 inline-flex cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3.5 text-xs font-bold tracking-wider text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:scale-95"
+              className="relative z-30 inline-flex w-auto cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:scale-95"
             >
               DOWNLOAD PROFILE <span className="ml-2 text-sm" aria-hidden="true">&#8595;</span>
             </a>
