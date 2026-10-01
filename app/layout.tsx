@@ -4,6 +4,8 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import "./redesign.css";
 import { Assistant } from "@/components/chatbot/assistant";
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
@@ -100,14 +102,16 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <body>
+      <body className="site-shell">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
+        <Header />
         {children}
+        <Footer />
         <Assistant />
 
         {gaId && (

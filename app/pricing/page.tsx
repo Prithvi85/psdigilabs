@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PricingCards } from "@/components/pricing/pricing-cards";
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import { pricingPackages } from "@/data/pricing";
 
 export const metadata: Metadata = {
@@ -14,9 +12,6 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <>
-      <Header />
-
       <main className="inner-main">
         <section className="page-hero">
           <div className="container">
@@ -321,8 +316,5 @@ export default function PricingPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
   );
 }

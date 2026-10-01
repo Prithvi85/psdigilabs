@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
 
 const siteUrl = "https://www.psdigilabs.in";
 const pageUrl = `${siteUrl}/services/android-app-development`;
@@ -75,8 +73,6 @@ const faqs = [
 
 export default function AndroidDevelopmentPage() {
   return (
-    <>
-      <Header />
       <main className="min-h-screen bg-[#f8fafc] pt-24 pb-16 text-slate-900">
         <script
           type="application/ld+json"
@@ -173,7 +169,5 @@ export default function AndroidDevelopmentPage() {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
   );
 }

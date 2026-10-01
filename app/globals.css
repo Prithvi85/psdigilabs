@@ -75,6 +75,16 @@ body {
   overflow-x: hidden;
 }
 
+body.site-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body.site-shell > main {
+  flex: 1 0 auto;
+}
+
 /* Prevent SVG icons from ballooning to viewport width */
 svg {
   display: inline-block;
