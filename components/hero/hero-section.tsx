@@ -50,11 +50,14 @@ export const HeroSection = () => {
       {/* 2. Left-Aligned Typography & Live Interactive Buttons */}
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 py-16 md:py-24 lg:px-14">
         <div className="relative z-20 max-w-[560px] pt-4 text-left sm:pt-6">
-          {/* Distinct Navy Capsule Badge with Glowing Pulsing Cyan Dot */}
+          {/* Digital product engineering badge */}
           <div className="mb-5 w-fit">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#0d233a] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white">
+            <span
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white"
+              style={{ color: "#ffffff" }}
+            >
               <span
-                className="h-2 w-2 shrink-0 rounded-full bg-[#2563eb]"
+                className="h-2 w-2 shrink-0 rounded-full bg-blue-500"
                 aria-hidden="true"
               />
               DIGITAL PRODUCT ENGINEERING
