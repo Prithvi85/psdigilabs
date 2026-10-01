@@ -2,7 +2,7 @@ export const projects = [
   {
     name: "Ritika Jaiswal Fashion",
     category: "Luxury Fashion Website & CMS",
-    image: "/images/projects/ritika-jaiswal-fashion.webp",
+    image: "/images/projects/rjfashion.webp",
     description: "Elegant fashion brand website",
     website: "https://www.ritikajaiswalfashion.com",
     alt: "Ritika Jaiswal Fashion luxury fashion website homepage",

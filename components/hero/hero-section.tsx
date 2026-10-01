@@ -51,16 +51,12 @@ export const HeroSection = () => {
       <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 py-16 md:py-24 lg:px-14">
         <div className="relative z-20 max-w-[560px] pt-4 text-left sm:pt-6">
           {/* Digital product engineering badge */}
-          <div className="mb-5 w-fit">
-            <span
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white"
-              style={{ color: "#ffffff" }}
-            >
-              <span
-                className="h-2 w-2 shrink-0 rounded-full bg-blue-500"
-                aria-hidden="true"
-              />
-              DIGITAL PRODUCT ENGINEERING
+          <div className="hero-badge-wrap">
+            <span className="hero-engineering-badge">
+              <span className="hero-engineering-badge-dot" aria-hidden="true" />
+              <span className="hero-engineering-badge-text">
+                DIGITAL PRODUCT ENGINEERING
+              </span>
             </span>
           </div>
 
@@ -76,21 +72,21 @@ export const HeroSection = () => {
           </p>
 
           {/* Action Buttons */}
-          <div className="mt-8 flex flex-wrap items-center gap-4 sm:flex-row">
+          <div className="hero-action-row">
             <a
               href="#projects"
               onClick={handleExploreWork}
-              className="relative z-30 inline-flex w-auto cursor-pointer items-center justify-center rounded-full bg-blue-600 px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg active:scale-95"
+              className="hero-action hero-action-primary"
             >
-              EXPLORE OUR WORK <span className="ml-2 text-sm" aria-hidden="true">&#8594;</span>
+              EXPLORE OUR WORK <span className="hero-action-icon" aria-hidden="true">&#8594;</span>
             </a>
 
             <a
               href={PROFILE_DOWNLOAD_URL}
               download={PROFILE_DOWNLOAD_FILENAME}
-              className="relative z-30 inline-flex w-auto cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-slate-800 shadow-sm transition-all hover:bg-slate-50 active:scale-95"
+              className="hero-action hero-action-secondary"
             >
-              DOWNLOAD PROFILE <span className="ml-2 text-sm" aria-hidden="true">&#8595;</span>
+              DOWNLOAD PROFILE <span className="hero-action-icon" aria-hidden="true">&#8595;</span>
             </a>
           </div>
         </div>
