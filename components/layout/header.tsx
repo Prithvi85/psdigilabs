@@ -15,7 +15,8 @@ export function Header() {
             height={64}
             sizes="(max-width: 767px) 48px, (max-width: 1023px) 56px, 64px"
             priority
-            className="!h-11 sm:!h-12 md:!h-14 lg:!h-16 !w-auto object-contain transition-transform"
+            style={{ width: "auto", height: "auto" }}
+            className="!h-11 w-auto sm:!h-12 md:!h-14 lg:!h-16 object-contain transition-transform"
           />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
