@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS leads (
   country text NOT NULL,
   service text NOT NULL,
   budget text,
-  project_name text,
+  company text,
   existing_website text,
   project_description text NOT NULL,
   preferred_timeline text,

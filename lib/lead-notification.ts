@@ -13,19 +13,29 @@ export async function sendLeadNotification(lead: NewLead): Promise<void> {
   if (!apiKey || !to || !from) throw new Error("Lead notification email is not configured");
 
   const fields = [
-    ["Name", lead.full_name], ["Email", lead.email], ["Phone", lead.phone || "Not provided"],
-    ["Country", lead.country], ["Project Type", lead.project_type], ["Service", lead.service],
-    ["Project Name", lead.project_name || "Not provided"],
+    ["Name", lead.full_name],
+    ["Email", lead.email],
+    ["Phone", lead.phone || "Not provided"],
+    ["Country", lead.country],
+    ["Project Type", lead.project_type],
+    ["Service", lead.service],
+    ["Company", lead.company || "Not provided"],
     ["Existing Website", lead.existing_website || "Not provided"],
     ["Technology Preferences", lead.tech_preferences || "Not provided"],
-    ["Preferred Timeline", lead.preferred_timeline], ["Source", lead.source],
+    ["Preferred Timeline", lead.preferred_timeline],
+    ["Source", lead.source],
     ["Submitted At", lead.created_at],
   ] as const;
+
   const text = [
-    "PSDigiLabs - New Project Enquiry", "",
+    "PSDigiLabs - New Project Enquiry",
+    "",
     ...fields.flatMap(([label, value]) => [label + ":", value, ""]),
-    "Project Requirements:", lead.project_description, "",
-    "Lead Database ID:", lead.id,
+    "Project Requirements:",
+    lead.project_description,
+    "",
+    "Lead Database ID:",
+    lead.id,
   ].join("\n");
 
   const response = await fetch(RESEND_EMAILS_URL, {
@@ -37,9 +47,15 @@ export async function sendLeadNotification(lead: NewLead): Promise<void> {
       "user-agent": "PSDigiLabs-Website/1.0",
     },
     body: JSON.stringify({
-      from, to: [to],
-      subject: "New PSDigiLabs Project Enquiry - " + singleLine(lead.full_name) + " - " + singleLine(lead.service),
-      text, reply_to: lead.email,
+      from,
+      to: [to],
+      subject:
+        "New PSDigiLabs Project Enquiry - " +
+        singleLine(lead.full_name) +
+        " - " +
+        singleLine(lead.service),
+      text,
+      reply_to: lead.email,
     }),
   });
 
