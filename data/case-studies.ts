@@ -1,0 +1,43 @@
+export const caseStudies = [
+  {
+    slug: "ritika-jaiswal-fashion",
+    name: "Ritika Jaiswal Fashion",
+    category: "Luxury fashion · Website & CMS",
+    image: "/images/projects/rjfashion.webp",
+    alt: "Ritika Jaiswal Fashion homepage featuring couture collections",
+    website: "https://www.ritikajaiswalfashion.com",
+    intro: "A digital home for a fashion label spanning couture, bridal and ready-to-wear collections.",
+    challenge: "Present distinct collections and editorial content within one experience that keeps the fashion brand at the centre.",
+    delivery: "A luxury fashion website and content management system, as recorded in the project portfolio.",
+    result: "The live experience is public. No validated performance, conversion or revenue comparison has been provided for publication.",
+    technology: "The CMS platform and implementation stack have not been publicly disclosed.",
+  },
+  {
+    slug: "creative-monks",
+    name: "CreativeMonks",
+    category: "Photography & film · Website & CMS",
+    image: "/images/projects/creative-monks.webp",
+    alt: "CreativeMonks homepage presenting wedding photography and films",
+    website: "https://www.creativemonks.in",
+    intro: "A visual portfolio for a photography and filmmaking studio, built to let the work lead.",
+    challenge: "Make a media-led portfolio easy to explore while keeping the studio identity, work and enquiry path clear.",
+    delivery: "A photography and films website with CMS, as recorded in the project portfolio.",
+    result: "The studio website is live. No validated enquiry or performance comparison has been provided for publication.",
+    technology: "The CMS platform and implementation stack have not been publicly disclosed.",
+  },
+  {
+    slug: "psdigilabs-platform",
+    name: "PSDigiLabs",
+    category: "Digital product engineering · Website",
+    image: "/images/projects/psdigilabs.webp",
+    alt: "PSDigiLabs website for product engineering, testing and automation",
+    website: "https://www.psdigilabs.in",
+    intro: "The studio's own platform brings web, Android, quality engineering and automation services into one place.",
+    challenge: "Explain several related engineering services clearly and give prospective clients a practical path to start a scoped enquiry.",
+    delivery: "A responsive Next.js website with service routes, project examples, pricing guidance and a structured project enquiry flow.",
+    result: "The site and enquiry workflow are live. No measured conversion or page-speed comparison has been supplied.",
+    technology: "Next.js, React, TypeScript, Tailwind CSS and Neon PostgreSQL.",
+  },
+] as const;
+
+export const caseStudyBySlug = (slug: string) => caseStudies.find((study) => study.slug === slug);

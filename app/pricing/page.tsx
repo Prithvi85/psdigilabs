@@ -1,321 +1,54 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PricingCards } from "@/components/pricing/pricing-cards";
-import { pricingPackages } from "@/data/pricing";
-import { createPageMetadata } from "@/lib/seo";
+import { Reveal } from "@/components/brand/reveal";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Website Development Pricing in India & Abroad",
-  description:
-    "Compare 2026 website development costs in India and international markets for landing pages, business websites, CMS platforms, e-commerce and custom web applications.",
-  path: "/pricing",
-});
+export const metadata: Metadata = {
+  title: "Pricing & Engagement Models",
+  description: "Learn how PSDigiLabs scopes website, app, QA and automation projects. Every quote is based on agreed deliverables, constraints and support needs.",
+  alternates: { canonical: "/pricing" },
+};
+
+const costFactors = [
+  ["Scope and journeys", "Pages, user roles, key journeys, data models and the first useful release."],
+  ["Design and content", "Existing brand assets, content readiness, custom interfaces and accessibility needs."],
+  ["Integrations", "APIs, authentication, payments, analytics, CRM and existing system constraints."],
+  ["Quality and support", "Device coverage, automation depth, release coordination and post-launch ownership."],
+] as const;
 
 export default function PricingPage() {
   return (
-      <div className="w-full bg-slate-50">
-        <section className="pt-28 sm:pt-32 pb-16 w-full bg-[#071524] text-white border-b border-slate-800">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">CUSTOM PROJECT QUOTES</p>
-
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-              A CUSTOM QUOTE,
-              <br />
-              SCOPED TO YOUR PROJECT.
-            </h1>
-
-            <p className="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
-              Request a quote tailored to your scope, functionality,
-              integrations, content and delivery requirements. Starting prices
-              are planning references, not fixed quotes.
-            </p>
-          </div>
-        </section>
-
-        <section className="container pricing-content">
+    <main className="studio-page">
+      <section className="studio-interior-hero">
+        <div className="studio-container studio-interior-hero-grid"><div><p className="studio-eyebrow">Pricing / engagement</p><h1 className="studio-display">Clear scope.<br /><span>Useful estimate.</span></h1></div><p>There is no one-size-fits-all price for custom engineering. We agree on the work, constraints and delivery checkpoints, then provide a scoped quote before build starts.</p></div>
+      </section>
+      <section className="studio-section">
+        <div className="studio-container">
+          <div className="studio-section-intro"><p className="studio-eyebrow">Typical engagement shapes</p><h2 className="studio-display">A starting point, not a fixed package.</h2><p>Each engagement is shaped around the actual requirements. No commitment is made until scope and assumptions are clear.</p></div>
           <PricingCards />
-        </section>
-
-        <section
-          className="pricing-seo-comparison"
-          aria-labelledby="pricing-comparison-heading"
-        >
-          <div className="container">
-            <div className="pricing-seo-heading">
-              <p className="eyebrow">2026 WEBSITE DEVELOPMENT PRICING</p>
-
-              <h2 id="pricing-comparison-heading">
-                Website Development Pricing in India &amp; International Markets
-              </h2>
-
-              <p>
-                PSDigiLabs offers separate starting prices for India and
-                international projects. These are market-specific starting
-                points rather than direct currency conversions, with final
-                quotations based on project scope, functionality, integrations
-                and delivery requirements.
-              </p>
-            </div>
-
-            <div className="pricing-comparison-table-wrap">
-              <table className="pricing-comparison-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Service</th>
-                    <th scope="col">India</th>
-                    <th scope="col">International</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {pricingPackages.map((item) => (
-                    <tr key={item.id}>
-                      <th scope="row">{item.title}</th>
-                      <td>{item.price.india}</td>
-                      <td>{item.price.international}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <p className="pricing-comparison-note">
-              Starting prices provide an initial planning reference. Projects
-              requiring additional integrations, custom workflows, data
-              migration, advanced functionality or ongoing support are scoped
-              separately.
-            </p>
-          </div>
-        </section>
-
-        <section
-          className="pricing-cost-factors"
-          aria-labelledby="pricing-cost-factors-heading"
-        >
-          <div className="container">
-            <div className="pricing-cost-factors-heading">
-              <p className="eyebrow">PROJECT COST FACTORS</p>
-
-              <h2 id="pricing-cost-factors-heading">
-                What Affects Website Development Cost?
-              </h2>
-
-              <p>
-                Website development costs vary because every project has
-                different business goals, technical requirements and delivery
-                needs. The final quotation is based on the actual scope rather
-                than a fixed one-size-fits-all package.
-              </p>
-            </div>
-
-            <div className="pricing-cost-factors-grid">
-              <article>
-                <span>01</span>
-                <h3>Project Scope</h3>
-                <p>
-                  The number of pages, user journeys, content requirements and
-                  overall size of the project influence development effort.
-                </p>
-              </article>
-
-              <article>
-                <span>02</span>
-                <h3>Design Complexity</h3>
-                <p>
-                  Custom layouts, responsive behaviour, animations and
-                  specialised interface requirements can increase design and
-                  implementation work.
-                </p>
-              </article>
-
-              <article>
-                <span>03</span>
-                <h3>CMS &amp; Database Requirements</h3>
-                <p>
-                  Admin dashboards, editable content, structured data and
-                  database workflows require additional architecture and
-                  development.
-                </p>
-              </article>
-
-              <article>
-                <span>04</span>
-                <h3>Integrations</h3>
-                <p>
-                  Payment gateways, analytics, email services, authentication
-                  and third-party APIs can affect project complexity and
-                  delivery time.
-                </p>
-              </article>
-
-              <article>
-                <span>05</span>
-                <h3>Custom Functionality &amp; Automation</h3>
-                <p>
-                  Business-specific workflows, dashboards, role-based features
-                  and automation are scoped according to their technical
-                  requirements.
-                </p>
-              </article>
-
-              <article>
-                <span>06</span>
-                <h3>Ongoing Support</h3>
-                <p>
-                  Maintenance, updates, monitoring and post-launch improvements
-                  can be included according to the level of ongoing support
-                  required.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="pricing-study">
-          <div className="container pricing-study-inner">
-            <div className="pricing-study-copy">
-              <p className="eyebrow">
-                2026 INDIA &amp; INTERNATIONAL MARKET COMPARISON
-              </p>
-
-              <h2>How Competitive Is PSDigiLabs Pricing?</h2>
-
-              <p>
-                We compared PSDigiLabs starting prices with indicative 2026
-                market ranges across India, the United States, United Kingdom,
-                Canada and Australia for landing pages, business websites, CMS
-                platforms, e-commerce and custom web applications.
-              </p>
-
-              <p>
-                The study shows that PSDigiLabs delivers international-quality
-                digital solutions at highly competitive prices - cost-efficient
-                in every major market, with exceptional value in advanced
-                platforms and custom application development.
-              </p>
-            </div>
-
-            <div className="pricing-study-actions">
-              <a
-                className="button button-primary"
-                href="/downloads/PSDigiLabs_2026_Market_Pricing_Comparative_Study.pptx"
-                download
-              >
-                DOWNLOAD 2026 PRICING STUDY
-              </a>
-
-              <Link className="button button-secondary" href="/contact?source=pricing">
-                GET QUOTE
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section
-          className="pricing-faq"
-          aria-labelledby="pricing-faq-heading"
-        >
-          <div className="container">
-            <div className="pricing-faq-heading">
-              <p className="eyebrow">PRICING FAQS</p>
-
-              <h2 id="pricing-faq-heading">
-                Website Development Pricing Questions
-              </h2>
-
-              <p>
-                Clear answers to common questions about website development
-                pricing, project scope and ongoing support.
-              </p>
-            </div>
-
-            <div className="pricing-faq-list">
-              <details>
-                <summary>How much does website development cost in India?</summary>
-                <p>
-                  PSDigiLabs website development starts from ₹8,000+ for a
-                  landing page and varies according to project type, scope,
-                  functionality, integrations and delivery requirements.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  How much does website development cost for international
-                  clients?
-                </summary>
-                <p>
-                  International website development starts from $199+ for a
-                  landing page. Final pricing depends on the project scope,
-                  functionality, integrations, content requirements and level
-                  of customisation.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Are PSDigiLabs international prices direct currency
-                  conversions?
-                </summary>
-                <p>
-                  No. India and international prices are separate
-                  market-specific starting points rather than direct currency
-                  conversions.
-                </p>
-              </details>
-
-              <details>
-                <summary>What is included in the starting price?</summary>
-                <p>
-                  The starting price provides an initial planning reference.
-                  Exact inclusions depend on the selected service and project
-                  scope, including design, development, integrations and other
-                  agreed requirements.
-                </p>
-              </details>
-
-              <details>
-                <summary>What affects the final website development cost?</summary>
-                <p>
-                  Final pricing is influenced by project scope, design
-                  complexity, CMS and database requirements, integrations,
-                  custom functionality, automation and ongoing support needs.
-                </p>
-              </details>
-
-              <details>
-                <summary>Do you provide website maintenance after launch?</summary>
-                <p>
-                  Yes. PSDigiLabs offers website maintenance from ₹3,000+ per
-                  month for India projects and $99+ per month for international
-                  projects, depending on the required level of support.
-                </p>
-              </details>
-            </div>
-          </div>
-        </section>
-        <section className="custom-quote">
-          <div className="container">
-            <div>
-              <p className="eyebrow light-eyebrow">TAILORED DELIVERY</p>
-
-              <h2>Need Something More Custom?</h2>
-
-              <p>
-                Custom functionality, automation, integrations, dashboards and
-                unique workflows can be scoped individually.
-              </p>
-            </div>
-
-            <div className="section-actions">
-              <Link
-                className="button button-light"
-                href="/contact?source=pricing&amp;service=custom"
-              >
-                GET QUOTE
-              </Link>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section className="studio-section studio-section-paper">
+        <div className="studio-container studio-quote-process">
+          <div><p className="studio-eyebrow">How estimates work</p><h2 className="studio-display">Four steps to a grounded quote.</h2><p>We make assumptions visible so you can decide what to do now, what to defer and what needs discovery.</p></div>
+          <ol>{["Share the goal and context", "Clarify scope and constraints", "Review milestones and assumptions", "Approve a proposal before delivery"].map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol>
+        </div>
+      </section>
+      <section className="studio-section">
+        <div className="studio-container">
+          <div className="studio-section-intro"><p className="studio-eyebrow">What changes the estimate</p><h2 className="studio-display">Cost follows the work.</h2></div>
+          <div className="studio-cost-grid">{costFactors.map(([title, text], index) => <Reveal key={title} delay={index * 50}><article><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div>
+        </div>
+      </section>
+      <section className="studio-section studio-section-paper">
+        <div className="studio-container studio-faq-layout"><div><p className="studio-eyebrow">Pricing questions</p><h2 className="studio-display">A few useful details.</h2></div><div className="studio-faq-list">
+          <details><summary>Are the engagement cards fixed-price packages?<span aria-hidden="true">+</span></summary><p>No. They describe common project shapes. We confirm deliverables, assumptions and cost in a scoped proposal before work begins.</p></details>
+          <details><summary>Do you work with teams outside India?<span aria-hidden="true">+</span></summary><p>Yes. PSDigiLabs is based in India and works with teams in India and internationally. Time zone, communication and delivery expectations are discussed during scoping.</p></details>
+          <details><summary>Can we begin with a small engagement?<span aria-hidden="true">+</span></summary><p>Where practical, we can define a focused first milestone or discovery phase before committing to a larger build.</p></details>
+          <details><summary>What happens after I request a quote?<span aria-hidden="true">+</span></summary><p>We review your brief and aim to respond within one business day with clarifying questions or a next step.</p></details>
+        </div></div>
+      </section>
+      <section className="studio-bottom-cta"><div className="studio-container studio-bottom-cta-inner"><div><p className="studio-eyebrow studio-eyebrow-light">Start with the brief</p><h2 className="studio-display">Tell us what needs to work better.</h2><p>We&apos;ll help turn the context into a useful first scope.</p></div><Link className="studio-button studio-button-lime" href="/contact">Request a scoped quote <span aria-hidden="true">↗</span></Link></div></section>
+    </main>
   );
 }

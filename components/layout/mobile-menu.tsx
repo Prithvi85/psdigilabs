@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { navigation } from "@/data/navigation";
 import Link from "next/link";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const firstLink = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     if (!open) return;
-    firstLink.current?.focus();
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
@@ -23,15 +21,15 @@ export function MobileMenu() {
   }, [open]);
 
   return (
-    <div className="mobile-menu-wrap">
-      <button className="menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close navigation menu" : "Open navigation menu"} onClick={() => setOpen((value) => !value)}>
-        <span className={open ? "menu-lines menu-lines-open" : "menu-lines"} aria-hidden="true"><i /><i /><i /></span>
+    <div className="studio-mobile-menu">
+      <button className="studio-menu-toggle" type="button" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Close navigation menu" : "Open navigation menu"} onClick={() => setOpen((value) => !value)}>
+        <span className={open ? "studio-menu-icon is-open" : "studio-menu-icon"} aria-hidden="true"><i /><i /></span>
       </button>
       {open && (
-        <div id="mobile-navigation" className="mobile-panel">
+        <div id="mobile-navigation" className="studio-mobile-panel">
           <nav aria-label="Mobile navigation">
-            {navigation.map((item, index) => <Link ref={index === 0 ? firstLink : undefined} key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
-            <Link className="button button-primary" href="/contact" onClick={() => setOpen(false)}>LET&apos;S CONNECT</Link>
+            {navigation.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<span aria-hidden="true">↗</span></Link>)}
+            <Link className="studio-button studio-button-lime" href="/contact" onClick={() => setOpen(false)}>Tell us what you&apos;re building <span aria-hidden="true">↗</span></Link>
           </nav>
         </div>
       )}

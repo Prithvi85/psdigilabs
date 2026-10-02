@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components/contact/contact-form";
-import { indiaBudgets, internationalBudgets, serviceOptions, timelineOptions } from "@/data/leads";
+import { projectTypeOptions, serviceOptions, timelineOptions } from "@/data/leads";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -9,10 +9,13 @@ export const metadata = createPageMetadata({
   path: "/contact",
 });
 
+const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL;
+const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL;
+
 type ContactSearchParams = {
   service?: string | string[];
-  market?: string | string[];
-  budget?: string | string[];
+  project_type?: string | string[];
+  company_name?: string | string[];
   timeline?: string | string[];
 };
 
@@ -23,53 +26,51 @@ export default async function ContactPage({
 }) {
   const query = await searchParams;
   const serviceValue = typeof query.service === "string" ? query.service : "";
-  const market = query.market === "international" ? "international" : "india";
-  const budgetValue = typeof query.budget === "string" ? query.budget : "";
+  const projectTypeValue = typeof query.project_type === "string" ? query.project_type : "";
+  const companyName = typeof query.company_name === "string" ? query.company_name.slice(0, 120) : "";
   const timelineValue = typeof query.timeline === "string" ? query.timeline : "";
-  const budgetOptions = market === "india" ? indiaBudgets : internationalBudgets;
   const initialService = serviceOptions.some(([value]) => value === serviceValue)
     ? serviceValue
     : "";
-  const initialBudget = budgetOptions.find((value) => value === budgetValue) ?? "";
+  const initialProjectType = projectTypeOptions.some(([value]) => value === projectTypeValue)
+    ? projectTypeValue
+    : "";
   const initialTimeline = timelineOptions.find((value) => value === timelineValue) ?? "";
 
   return (
-    <div className="contact-page w-full bg-slate-50">
-      <section className="pt-28 sm:pt-32 pb-16 w-full bg-[#071524] text-white border-b border-slate-800">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">START A CONVERSATION</p>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">LET&apos;S BUILD SOMETHING THAT WORKS</h1>
-          <p className="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
-            Tell PSDigiLabs what you want to build and share enough detail to begin a meaningful project discussion.
-          </p>
+    <main className="studio-page">
+      <section className="studio-interior-hero">
+        <div className="studio-container studio-interior-hero-grid">
+          <div><p className="studio-eyebrow">Contact</p><h1 className="studio-display">A useful first step<br /><span>is a clear conversation.</span></h1></div>
+          <p>Tell us what you want to change, who it is for and what you already have. We&apos;ll review the context and aim to reply within one business day.</p>
         </div>
       </section>
 
-      <section className="w-full bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="contact-page-intro lg:col-span-5 space-y-6 pt-2">
-            <p className="contact-kicker">PROJECT ENQUIRY</p>
-            <h2>
-              A useful first conversation starts with context.
-            </h2>
-            <p>
-              Share your goals, users, key functionality and timeline. Starting prices are directional; the final quote depends on scope, integrations, content, complexity and delivery requirements.
-            </p>
-            <a className="contact-email" href="mailto:contact@psdigilabs.in">
-              contact@psdigilabs.in
-            </a>
+      <section className="studio-section">
+        <div className="studio-container studio-contact-grid">
+          <div className="studio-contact-copy">
+            <p className="studio-eyebrow">Project enquiry</p>
+            <h2 className="studio-display">Bring the brief.<br />We&apos;ll help shape the scope.</h2>
+            <p>Share the goals, users, important functionality and timeline. A useful first estimate depends on the actual scope, integrations and delivery requirements.</p>
+            <div className="studio-contact-links">
+              <a href="mailto:contact@psdigilabs.in"><span>Email</span><strong>contact@psdigilabs.in</strong><span aria-hidden="true">↗</span></a>
+              <div><span>Based in</span><strong>Kolkata, India<br />Working worldwide</strong></div>
+              {whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Message the studio</strong><span aria-hidden="true">↗</span></a>}
+              {bookingUrl && <a href={bookingUrl} target="_blank" rel="noopener noreferrer"><span>Book a call</span><strong>Choose a time</strong><span aria-hidden="true">↗</span></a>}
+            </div>
           </div>
 
-          <div className="contact-form-column lg:col-span-7 bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+          <div className="studio-contact-form-panel">
+            <div className="studio-contact-form-heading"><span>01 / PROJECT DETAILS</span><p>Required fields are marked with an asterisk.</p></div>
             <ContactForm
               initialService={initialService}
-              initialMarket={market}
-              initialBudget={initialBudget}
+              initialProjectType={initialProjectType}
+              initialCompanyName={companyName}
               initialTimeline={initialTimeline}
             />
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

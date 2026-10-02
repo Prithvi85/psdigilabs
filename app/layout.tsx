@@ -2,7 +2,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import "./redesign.css";
+import "./brand.css";
 import { Assistant } from "@/components/chatbot/assistant";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -99,20 +99,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL;
 
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
-        <Header />
-        <main className="flex-1 w-full">{children}</main>
-        <Footer />
-        <Assistant />
+      <body className="site-shell studio-shell">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
+        <Header />
+        {children}
+        <Footer />
+        <Assistant />
+        {whatsappUrl && (
+          <a
+            className="studio-whatsapp-chat"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with PSDigiLabs on WhatsApp"
+          >
+            WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+        )}
 
         {gaId && (
           <>

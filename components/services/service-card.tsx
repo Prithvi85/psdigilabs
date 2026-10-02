@@ -1,22 +1,21 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
+import type { ServiceContent } from "@/lib/sanity-content";
 
-type Service = { icon: string; title: string; description: string; capabilities: readonly string[]; href: string };
-
-export function ServiceCard({ service, index }: { service: Service; index: number }) {
+export function ServiceCard({ service, index = 0 }: { service: ServiceContent; index?: number }) {
 	return (
-		<article className={`service-card service-card-${index + 1} h-full flex flex-col`}>
-			<div className="service-top">
-				<span className="service-number">{String(index + 1).padStart(2, "0")}</span>
-				<span className="icon-box"><Icon name={service.icon as "web" | "mobile" | "test" | "automation"} /></span>
+		<article className="studio-service-card">
+			<div className="studio-service-card-top">
+				<span className="studio-service-number">0{index + 1}</span>
+				<span className="studio-service-icon"><Icon name={service.icon as "web" | "mobile" | "test" | "automation"} /></span>
 			</div>
-			<h3>{service.title}</h3>
+			<h3 className="studio-display">{service.title}</h3>
 			<p>{service.description}</p>
-			<div className="service-tags">
-				{service.capabilities.slice(0, 5).map((item) => <span key={item}>{item}</span>)}
+			<div className="studio-chip-list">
+				{service.capabilities.slice(0, 3).map((capability) => <span key={capability}>{capability}</span>)}
 			</div>
-			<Link href={service.href} className="mt-auto pt-6 inline-flex items-center justify-between text-sm font-bold uppercase tracking-wider text-blue-700 hover:text-blue-900">
-				LEARN MORE <span className="service-arrow" aria-hidden="true">&#8599;</span>
+			<Link className="studio-card-link" href={`/services/${service.slug}`}>
+				Explore service <span aria-hidden="true">↗</span>
 			</Link>
 		</article>
 	);

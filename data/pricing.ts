@@ -94,8 +94,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹8,000",
+      international: "$199",
     },
     features: [
       "Modern conversion-focused layout",
@@ -116,8 +116,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹18,000",
+      international: "$449",
     },
     features: [
       "Multi-page custom design & development",
@@ -138,8 +138,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Calculate Scope & Quote",
     billingType: "instant-quote",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹30,000",
+      international: "$749",
     },
     features: [
       "Complete custom visual frontend",
@@ -161,8 +161,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Request Tailored Proposal",
     billingType: "custom-proposal",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹45,000",
+      international: "$1,099",
     },
     features: [
       "Multi-role user authentication (RBAC / OAuth)",
@@ -183,8 +183,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Get Instant Quote",
     billingType: "instant-quote",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹40,000",
+      international: "$999",
     },
     features: [
       "Fast storefront with catalog search & filter",
@@ -205,8 +205,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Talk to an Architect",
     billingType: "custom-proposal",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹60,000",
+      international: "$1,499",
     },
     features: [
       "Full-stack custom software architecture",
@@ -227,8 +227,8 @@ export const pricingPackages: readonly PricingPackage[] = [
     ctaText: "Select Retainer Scope",
     billingType: "retainer",
     price: {
-      india: "On Request",
-      international: "On Request",
+      india: "₹3,000",
+      international: "$99",
     },
     features: [
       "Routine feature updates & bug fixes",

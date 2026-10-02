@@ -14,9 +14,10 @@ export async function sendLeadNotification(lead: NewLead): Promise<void> {
 
   const fields = [
     ["Name", lead.full_name], ["Email", lead.email], ["Phone", lead.phone || "Not provided"],
-    ["Country", lead.country], ["Service", lead.service], ["Budget", lead.budget || "Calculated upon review"],
+    ["Country", lead.country], ["Project Type", lead.project_type], ["Service", lead.service],
     ["Project Name", lead.project_name || "Not provided"],
     ["Existing Website", lead.existing_website || "Not provided"],
+    ["Technology Preferences", lead.tech_preferences || "Not provided"],
     ["Preferred Timeline", lead.preferred_timeline], ["Source", lead.source],
     ["Submitted At", lead.created_at],
   ] as const;
