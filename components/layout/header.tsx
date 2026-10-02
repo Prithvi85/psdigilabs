@@ -11,12 +11,11 @@ export function Header() {
           <Image
             src="/images/branding/logo.png"
             alt="PSDigiLabs"
-            width={260}
-            height={64}
-            sizes="(max-width: 767px) 48px, (max-width: 1023px) 56px, 64px"
-            priority
-            style={{ width: "auto", height: "auto" }}
-            className="!h-11 w-auto sm:!h-12 md:!h-14 lg:!h-16 object-contain transition-transform"
+            width={1302}
+            height={1208}
+            sizes="(max-width: 767px) 210px, 280px"
+            preload
+            className="object-cover"
           />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">

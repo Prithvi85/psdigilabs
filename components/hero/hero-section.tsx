@@ -10,11 +10,12 @@ export const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
+    const video = videoRef.current;
+    if (!video || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    video.play().catch(() => {});
   }, []);
 
   const handleExploreWork = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -35,11 +36,11 @@ export const HeroSection = () => {
       <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none overflow-hidden">
         <video
           ref={videoRef}
-          autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          aria-hidden="true"
           className="h-full w-full object-cover object-[82%_center] sm:object-[80%_center] md:object-right"
           src="/videos/hero.mp4?v=2"
         />
@@ -62,7 +63,7 @@ export const HeroSection = () => {
 
           {/* Headline - Aligned with commercial search intent */}
           <h1 className="mb-4 text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-            Website Development &amp; App Solutions That{" "}
+            Building Digital Products That{" "}
             <span className="font-black text-[#1769e0]">Work Harder.</span>
           </h1>
 

@@ -1,22 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
 
 const siteUrl = "https://www.psdigilabs.in";
 const pageUrl = `${siteUrl}/services/quality-engineering`;
 
-export const metadata: Metadata = {
-  title: "Software Testing & Quality Engineering Services India | PSDigiLabs",
+export const metadata = createPageMetadata({
+  title: "Software Testing Services in India",
   description:
     "Manual testing, automation suites, API verification, and regression audits. PSDigiLabs provides structured quality assurance services for software and web apps in India.",
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: "Software Testing & Quality Engineering Services | PSDigiLabs",
-    description:
-      "Prevent defects before deployment with structured manual testing, end-to-end automation frameworks, and API verification services.",
-    url: pageUrl,
-    type: "website",
-  },
-};
+  path: pageUrl,
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

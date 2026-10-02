@@ -1,22 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
 
 const siteUrl = "https://www.psdigilabs.in";
 const pageUrl = `${siteUrl}/services/website-development`;
 
-export const metadata: Metadata = {
-  title: "Custom Website Development Services India | Next.js & Web Apps",
+export const metadata = createPageMetadata({
+  title: "Custom Website Development in India",
   description:
     "End-to-end custom website development services in India. PSDigiLabs builds high-performance Next.js platforms, responsive business websites, and tailored web applications.",
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: "Custom Website Development Services | PSDigiLabs",
-    description:
-      "Modern Next.js web applications, headless CMS platforms, and scalable business websites tailored for speed, SEO, and conversion.",
-    url: pageUrl,
-    type: "website",
-  },
-};
+  path: pageUrl,
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

@@ -1,22 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
 
 const siteUrl = "https://www.psdigilabs.in";
 const pageUrl = `${siteUrl}/services/workflow-automation`;
 
-export const metadata: Metadata = {
-  title: "Workflow Automation & Business Process Integration India | PSDigiLabs",
+export const metadata = createPageMetadata({
+  title: "Workflow Automation Services in India",
   description:
     "Automate repetitive operations, connect SaaS applications, and streamline data flows. PSDigiLabs engineers dependable business process automation in India.",
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: "Workflow & Business Process Automation Services | PSDigiLabs",
-    description:
-      "Eliminate manual bottlenecks with custom webhooks, Make/Activepieces automations, and resilient system integrations.",
-    url: pageUrl,
-    type: "website",
-  },
-};
+  path: pageUrl,
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

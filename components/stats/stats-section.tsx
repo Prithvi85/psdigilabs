@@ -12,14 +12,7 @@ export function StatsSection() {
                 <Icon name={stat.icon} />
               </span>
               <span className="stat-copy">
-                <strong>
-                  <span className="sr-only">{stat.value}</span>
-                  <span className="stat-value-roll" aria-hidden="true">
-                    {stat.frames.map((frame, index) => (
-                      <span key={`${frame}-${index}`}>{frame}</span>
-                    ))}
-                  </span>
-                </strong>
+                <strong>{stat.value}</strong>
                 <span>{stat.label}</span>
               </span>
             </li>

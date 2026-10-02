@@ -23,11 +23,11 @@ header a[href="/"] {
 header a[href="/"] img {
   width: 280px !important;
   max-width: none !important;
-  height: auto !important;
-  max-height: 64px !important;
-  object-fit: contain !important;
-  transform: scale(1.35) !important;
-  transform-origin: left center !important;
+  height: 64px !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center 45% !important;
+  transform: none !important;
 }
 
 @media (max-width: 767px) {
@@ -38,9 +38,7 @@ header a[href="/"] img {
   .brand-link img,
   header a[href="/"] img {
     width: 210px !important;
-    max-height: 50px !important;
-    transform: scale(1.25) !important;
-    transform-origin: left center !important;
+    height: 50px !important;
   }
 }
 
@@ -216,41 +214,6 @@ header a[href="/"] img {
   white-space: normal;
 }
 
-.stats-section .stat-value-roll {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  color: inherit;
-  font-size: inherit;
-  line-height: 1;
-  animation: stat-number-roll 8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
-  will-change: transform;
-}
-
-.stats-section .stat-value-roll > span {
-  flex: 0 0 1em;
-  margin: 0;
-  color: inherit;
-  font-size: inherit;
-  line-height: 1;
-}
-
-@keyframes stat-number-roll {
-  0%, 12% { transform: translateY(0); }
-  20%, 32% { transform: translateY(-1em); }
-  40%, 52% { transform: translateY(-2em); }
-  60%, 72% { transform: translateY(-3em); }
-  80%, 96% { transform: translateY(-4em); }
-  100% { transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stats-section .stat-value-roll {
-    animation: none;
-    transform: translateY(-4em);
-  }
-}
-
 /* =========================================================
    4. GENERAL SURFACE & CARD CONTRAST
    ========================================================= */
@@ -258,6 +221,24 @@ header a[href="/"] img {
 .section-heading > p:last-child,
 .pricing-preview .section-heading > p:last-child {
   color: #64748b;
+}
+
+#services .section-heading > p:last-child {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+
+#services .services-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  #services .services-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 .service-card h3,
@@ -291,17 +272,17 @@ header a[href="/"] img {
    ========================================================= */
 
 .process-section {
-  padding: 80px 0;
+  padding: clamp(4rem, 6vw, 7rem) 0 !important;
   background-color: #ffffff;
 }
 
 .process-section .process-grid {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 20px !important;
+  gap: 1.5rem !important;
   list-style: none !important;
   padding: 0 !important;
-  margin: 40px 0 0 !important;
+  margin: 2.5rem 0 0 !important;
 }
 
 .process-section .process-grid > li {
@@ -344,17 +325,130 @@ header a[href="/"] img {
   margin: 0 !important;
 }
 
+.skills-section {
+  padding: clamp(4rem, 6vw, 7rem) 0 !important;
+}
+
+.skills-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 2.5rem !important;
+}
+
+.skill-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  min-width: 0 !important;
+  padding: 1.5rem !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 1rem !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04) !important;
+}
+
+.skill-number {
+  display: inline-flex !important;
+  width: fit-content !important;
+  align-items: center !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.5rem !important;
+  background: #eff6ff !important;
+  color: #1769e0 !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+}
+
+.skill-card h3 {
+  margin: 0 !important;
+  color: #0c1930 !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+}
+
+.skill-card ul {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.5rem !important;
+  margin: 0 !important;
+  padding-left: 1rem !important;
+  color: #475569 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.45 !important;
+}
+
+.pricing-preview {
+  padding-top: clamp(4rem, 6vw, 7rem) !important;
+  padding-bottom: clamp(4rem, 6vw, 7rem) !important;
+}
+
+.preview-toolbar {
+  margin-bottom: 1.5rem !important;
+}
+
+.preview-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+}
+
+.preview-grid article {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 0.75rem !important;
+  min-width: 0 !important;
+  padding: 1.5rem !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 1rem !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04) !important;
+}
+
+.preview-grid article h3 {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: #0c1930 !important;
+}
+
+.preview-grid article small,
+.preview-grid article strong {
+  display: block !important;
+}
+
+.preview-grid article small {
+  color: #64748b !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+.preview-grid article strong {
+  color: #1769e0 !important;
+  font-size: 1.5rem !important;
+}
+
+.section-actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+}
+
 /* =========================================================
    6. TECHNOLOGY THINKING (ABOUT SECTION)
    ========================================================= */
 
 .about-section .about-grid {
   display: grid !important;
-  grid-template-columns: 1fr 1.15fr !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 56px !important;
-  padding: 60px 0 !important;
+  grid-template-columns: 1fr 1.5fr !important;
+  align-items: start !important;
+  gap: 4rem !important;
+  padding: 4rem 0 !important;
 }
 
 .about-section .about-grid > div:last-child {
@@ -372,6 +466,14 @@ header a[href="/"] img {
   padding: 13px 26px !important;
   border-radius: 9999px !important;
   align-self: flex-start !important;
+}
+
+.contact-section .contact-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1.5fr !important;
+  align-items: start !important;
+  gap: 4rem !important;
+  padding: 4rem 0 !important;
 }
 
 /* =========================================================
@@ -442,6 +544,17 @@ header a[href="/"] img {
 
   .process-section .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .skills-grid,
+  .preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .about-section .about-grid,
+  .contact-section .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 }
 
@@ -521,13 +634,16 @@ header a[href="/"] img {
   }
 
   .about-section .about-grid,
+  .contact-section .contact-grid,
   .quality-block {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
     padding: 24px !important;
   }
 
-  .process-section .process-grid {
+  .process-section .process-grid,
+  .skills-grid,
+  .preview-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }

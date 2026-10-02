@@ -1,22 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
 
 const siteUrl = "https://www.psdigilabs.in";
 const pageUrl = `${siteUrl}/services/android-app-development`;
 
-export const metadata: Metadata = {
-  title: "Android App Development Company in India | Native Kotlin Apps",
+export const metadata = createPageMetadata({
+  title: "Android App Development in India",
   description:
     "End-to-end native Android app development services in India. PSDigiLabs builds high-performance mobile applications using Kotlin, Jetpack Compose, and clean architecture.",
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: "Android App Development Services | PSDigiLabs",
-    description:
-      "Native Kotlin applications, robust REST integrations, and modern Jetpack Compose interfaces engineered for performance and scalability.",
-    url: pageUrl,
-    type: "website",
-  },
-};
+  path: pageUrl,
+});
 
 const serviceSchema = {
   "@context": "https://schema.org",

@@ -2,31 +2,32 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PricingCards } from "@/components/pricing/pricing-cards";
 import { pricingPackages } from "@/data/pricing";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Website Development Cost in India & International Pricing | PSDigiLabs",
+export const metadata: Metadata = createPageMetadata({
+  title: "Website Development Pricing in India & Abroad",
   description:
     "Compare 2026 website development costs in India and international markets for landing pages, business websites, CMS platforms, e-commerce and custom web applications.",
-  alternates: { canonical: "/pricing" },
-};
+  path: "/pricing",
+});
 
 export default function PricingPage() {
   return (
       <main className="inner-main">
         <section className="page-hero">
           <div className="container">
-            <p className="eyebrow">INDIA &amp; INTERNATIONAL PRICING</p>
+            <p className="eyebrow">CUSTOM PROJECT QUOTES</p>
 
             <h1>
-              REALISTIC STARTING POINTS.
+              A CUSTOM QUOTE,
               <br />
-              SCOPED FOR YOUR PROJECT.
+              SCOPED TO YOUR PROJECT.
             </h1>
 
             <p>
-              Every project is different. Final pricing depends on scope,
-              functionality, integrations, content, complexity and delivery
-              requirements.
+              Request a quote tailored to your scope, functionality,
+              integrations, content and delivery requirements. Starting prices
+              are planning references, not fixed quotes.
             </p>
           </div>
         </section>
@@ -203,8 +204,8 @@ export default function PricingPage() {
                 DOWNLOAD 2026 PRICING STUDY
               </a>
 
-              <Link className="button button-secondary" href="/contact">
-                DISCUSS YOUR PROJECT
+              <Link className="button button-secondary" href="/contact?source=pricing">
+                GET QUOTE
               </Link>
             </div>
           </div>
@@ -308,9 +309,9 @@ export default function PricingPage() {
             <div className="section-actions">
               <Link
                 className="button button-light"
-                href="/contact?service=custom"
+                href="/contact?source=pricing&amp;service=custom"
               >
-                REQUEST A CUSTOM QUOTE
+                GET QUOTE
               </Link>
             </div>
           </div>
