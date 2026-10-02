@@ -34,20 +34,20 @@ export default async function ContactPage({
   const initialTimeline = timelineOptions.find((value) => value === timelineValue) ?? "";
 
   return (
-    <main className="contact-page">
-      <section className="contact-hero-banner">
-        <div className="contact-hero-inner">
-          <p className="hero-pill">START A CONVERSATION</p>
-          <h1>LET&apos;S BUILD SOMETHING THAT WORKS</h1>
-          <p className="hero-desc">
+    <div className="contact-page w-full bg-slate-50">
+      <section className="pt-28 sm:pt-32 pb-16 w-full bg-[#071524] text-white border-b border-slate-800">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">START A CONVERSATION</p>
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">LET&apos;S BUILD SOMETHING THAT WORKS</h1>
+          <p className="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
             Tell PSDigiLabs what you want to build and share enough detail to begin a meaningful project discussion.
           </p>
         </div>
       </section>
 
-      <section className="contact-content">
-        <div className="container contact-content-grid">
-          <div className="contact-page-intro">
+      <section className="w-full bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="contact-page-intro lg:col-span-5 space-y-6 pt-2">
             <p className="contact-kicker">PROJECT ENQUIRY</p>
             <h2>
               A useful first conversation starts with context.
@@ -60,7 +60,7 @@ export default async function ContactPage({
             </a>
           </div>
 
-          <div className="contact-form-column">
+          <div className="contact-form-column lg:col-span-7 bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-sm">
             <ContactForm
               initialService={initialService}
               initialMarket={market}
@@ -70,6 +70,6 @@ export default async function ContactPage({
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

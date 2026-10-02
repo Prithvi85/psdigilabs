@@ -1,6 +1,7 @@
 export const services = [
   {
     icon: "web",
+    href: "/services/website-development",
     title: "Website Development",
     description:
       "Custom business websites, web applications, and fast Next.js platforms built for organic discovery, speed, and conversion.",
@@ -17,6 +18,7 @@ export const services = [
   },
   {
     icon: "mobile",
+    href: "/services/android-app-development",
     title: "Android App Development",
     description:
       "Native Android applications engineered with responsive UI/UX, robust architectures, and dependable backend integrations.",
@@ -32,6 +34,7 @@ export const services = [
   },
   {
     icon: "test",
+    href: "/services/quality-engineering",
     title: "Software Testing",
     description:
       "Comprehensive quality engineering covering manual verification, API validations, and automated test suites before release.",
@@ -48,6 +51,7 @@ export const services = [
   },
   {
     icon: "automation",
+    href: "/services/workflow-automation",
     title: "Workflow Automation",
     description:
       "Connected systems and process automation solutions that reduce repetitive manual tasks and eliminate operational bottlenecks.",

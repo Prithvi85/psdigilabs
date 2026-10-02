@@ -9,5 +9,5 @@ import { PricingPreview } from "@/components/pricing/pricing-preview";
 import { ProcessSection } from "@/components/process/process-section";
 
 export default function Home() {
-  return <main><HeroSection /><StatsSection /><ServicesSection /><ProjectsSection /><ProcessSection /><SkillsSection /><PricingPreview /><AboutSection /><ContactSection /></main>;
+  return <><HeroSection /><StatsSection /><ServicesSection /><ProjectsSection /><ProcessSection /><SkillsSection /><PricingPreview /><AboutSection /><ContactSection /></>;
 }

@@ -5,8 +5,8 @@ import { countries, indiaBudgets, internationalBudgets, serviceOptions, timeline
 
 type FormState = "idle" | "submitting" | "success" | "error";
 type Gtag = (command: "event", eventName: string, parameters: Record<string, string>) => void;
-const labelClasses = "block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2";
-const controlClasses = "w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm transition-all";
+const labelClasses = "block w-full text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2";
+const controlClasses = "w-full h-11 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all";
 
 export function ContactForm({ initialService = "", initialMarket = "india", initialBudget = "", initialTimeline = "" }: { initialService?: string; initialMarket?: "india" | "international"; initialBudget?: string; initialTimeline?: string }) {
   const [country, setCountry] = useState(initialMarket === "india" ? "India" : "");

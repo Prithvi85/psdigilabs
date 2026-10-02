@@ -102,17 +102,17 @@ export default function RootLayout({
 
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <body className="site-shell">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
+        <Header />
+        <main className="flex-1 w-full">{children}</main>
+        <Footer />
+        <Assistant />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
-        <Header />
-        {children}
-        <Footer />
-        <Assistant />
 
         {gaId && (
           <>

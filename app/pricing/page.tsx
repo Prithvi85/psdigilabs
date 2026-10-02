@@ -13,18 +13,18 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function PricingPage() {
   return (
-      <main className="inner-main">
-        <section className="page-hero">
-          <div className="container">
-            <p className="eyebrow">CUSTOM PROJECT QUOTES</p>
+      <div className="w-full bg-slate-50">
+        <section className="pt-28 sm:pt-32 pb-16 w-full bg-[#071524] text-white border-b border-slate-800">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">CUSTOM PROJECT QUOTES</p>
 
-            <h1>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
               A CUSTOM QUOTE,
               <br />
               SCOPED TO YOUR PROJECT.
             </h1>
 
-            <p>
+            <p className="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
               Request a quote tailored to your scope, functionality,
               integrations, content and delivery requirements. Starting prices
               are planning references, not fixed quotes.
@@ -316,6 +316,6 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
   );
 }

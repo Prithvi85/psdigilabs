@@ -1,3 +1,23 @@
+import Link from "next/link";
 import { Icon } from "@/components/ui/icon";
-type Service={icon:string;title:string;description:string;capabilities:readonly string[]};
-export function ServiceCard({service,index}:{service:Service;index:number}){return <article className={`service-card service-card-${index+1}`}><div className="service-top"><span className="service-number">{String(index+1).padStart(2,"0")}</span><span className="icon-box"><Icon name={service.icon as "web"|"mobile"|"test"|"automation"}/></span></div><h3>{service.title}</h3><p>{service.description}</p><div className="service-tags">{service.capabilities.slice(0,5).map((item)=><span key={item}>{item}</span>)}</div><span className="service-arrow" aria-hidden="true">&#8599;</span></article>}
+
+type Service = { icon: string; title: string; description: string; capabilities: readonly string[]; href: string };
+
+export function ServiceCard({ service, index }: { service: Service; index: number }) {
+	return (
+		<article className={`service-card service-card-${index + 1} h-full flex flex-col`}>
+			<div className="service-top">
+				<span className="service-number">{String(index + 1).padStart(2, "0")}</span>
+				<span className="icon-box"><Icon name={service.icon as "web" | "mobile" | "test" | "automation"} /></span>
+			</div>
+			<h3>{service.title}</h3>
+			<p>{service.description}</p>
+			<div className="service-tags">
+				{service.capabilities.slice(0, 5).map((item) => <span key={item}>{item}</span>)}
+			</div>
+			<Link href={service.href} className="mt-auto pt-6 inline-flex items-center justify-between text-sm font-bold uppercase tracking-wider text-blue-700 hover:text-blue-900">
+				LEARN MORE <span className="service-arrow" aria-hidden="true">&#8599;</span>
+			</Link>
+		</article>
+	);
+}

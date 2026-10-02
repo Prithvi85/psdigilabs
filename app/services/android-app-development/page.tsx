@@ -66,7 +66,7 @@ const faqs = [
 
 export default function AndroidDevelopmentPage() {
   return (
-      <main className="min-h-screen bg-[#f8fafc] pt-24 pb-16 text-slate-900">
+      <div className="w-full bg-slate-50 text-slate-900">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -75,19 +75,20 @@ export default function AndroidDevelopmentPage() {
         />
 
         {/* Hero Banner */}
-        <section className="mx-auto max-w-5xl px-6 py-12 text-center md:py-16">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700">
+        <section className="pt-28 sm:pt-32 pb-16 w-full bg-[#071524] text-white border-b border-slate-800">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-3">
             NATIVE PERFORMANCE &bull; MODERN KOTLIN
-          </span>
-          <h1 className="mt-6 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl md:leading-tight">
+          </p>
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
             Android App Development Company <br className="hidden sm:inline" />
             in India &amp; Kolkata
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="text-slate-300 max-w-2xl text-base sm:text-lg leading-relaxed">
             We build native Android applications that deliver fluid user interfaces, rock-solid stability, and dependable backend integrations tailored to your business operations.
           </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center rounded-full bg-[#1769e0] px-7 py-3 text-xs font-bold tracking-wider text-white shadow-md transition-all hover:bg-blue-700 active:scale-95"
@@ -101,10 +102,11 @@ export default function AndroidDevelopmentPage() {
               EXPLORE COST BENCHMARKS
             </Link>
           </div>
+          </div>
         </section>
 
         {/* Core Capabilities */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-10 text-center">
             <p className="text-xs font-bold uppercase tracking-wider text-blue-600">CAPABILITIES</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
@@ -112,11 +114,11 @@ export default function AndroidDevelopmentPage() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="service-capability-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {capabilities.map((cap) => (
               <div
                 key={cap.title}
-                className="rounded-xl border border-slate-200 bg-white p-7 shadow-xs"
+                className="h-full flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-7 shadow-xs"
               >
                 <h3 className="text-lg font-bold text-slate-900">{cap.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{cap.desc}</p>
@@ -126,7 +128,7 @@ export default function AndroidDevelopmentPage() {
         </section>
 
         {/* Pricing Interlink */}
-        <section className="mx-auto max-w-5xl px-6 py-10">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="rounded-2xl border border-blue-100 bg-blue-50/50 p-8 text-center sm:p-12">
             <h2 className="text-2xl font-bold text-slate-950">Clear, Project-Based App Pricing</h2>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-600">
@@ -144,7 +146,7 @@ export default function AndroidDevelopmentPage() {
         </section>
 
         {/* FAQs */}
-        <section className="mx-auto max-w-4xl px-6 py-12">
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="mb-8 text-center">
             <p className="text-xs font-bold uppercase tracking-wider text-blue-600">FREQUENTLY ASKED QUESTIONS</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
@@ -161,6 +163,6 @@ export default function AndroidDevelopmentPage() {
             ))}
           </div>
         </section>
-      </main>
+      </div>
   );
 }

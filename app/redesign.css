@@ -1,48 +1,4 @@
 /* =========================================================
-   1. SITE HEADER LOGO ENLARGEMENT (DESKTOP & MOBILE)
-   ========================================================= */
-
-.site-header {
-  height: 84px !important;
-  overflow: visible !important;
-}
-
-.site-header .brand,
-.site-header .brand a,
-.brand-link,
-header a[href="/"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  width: auto !important;
-  height: 100% !important;
-  overflow: visible !important;
-}
-
-.site-header .brand img,
-.brand-link img,
-header a[href="/"] img {
-  width: 280px !important;
-  max-width: none !important;
-  height: 64px !important;
-  max-height: none !important;
-  object-fit: cover !important;
-  object-position: center 45% !important;
-  transform: none !important;
-}
-
-@media (max-width: 767px) {
-  .site-header {
-    height: 72px !important;
-  }
-  .site-header .brand img,
-  .brand-link img,
-  header a[href="/"] img {
-    width: 210px !important;
-    height: 50px !important;
-  }
-}
-
-/* =========================================================
    2. DESKTOP HERO COMPOSITE & BUMPED HITBOX BUTTONS
    ========================================================= */
 
@@ -138,8 +94,8 @@ header a[href="/"] img {
 
 .stats-section .stats-grid {
   display: block;
-  width: min(1200px, calc(100% - 80px));
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 0;
   overflow: hidden;
   border: 0;
@@ -226,19 +182,6 @@ header a[href="/"] img {
 #services .section-heading > p:last-child {
   max-width: 60ch;
   margin-inline: auto;
-}
-
-#services .services-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  align-items: start;
-}
-
-@media (max-width: 768px) {
-  #services .services-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-  }
 }
 
 .service-card h3,
@@ -563,8 +506,7 @@ header a[href="/"] img {
    ========================================================= */
 
 @media (max-width: 767px) {
-  .header-inner { width: calc(100% - 40px); }
-  .mobile-panel { inset: 70px 0 0; height: calc(100dvh - 70px); }
+  .mobile-panel { inset: 4rem 0 0; height: calc(100dvh - 4rem); }
 
   .hero-composite-container {
     aspect-ratio: 16 / 10 !important;
@@ -838,4 +780,8 @@ header a[href="/"] img {
   .pricing-study-actions .button {
     font-size: 0.7rem;
   }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .mobile-panel { inset: 5rem 0 0; height: calc(100dvh - 5rem); }
 }
