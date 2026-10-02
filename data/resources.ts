@@ -38,6 +38,92 @@ export const resources = [
       { heading: "Ask for a scoped estimate", paragraphs: ["A useful estimate states assumptions, exclusions, milestones, review points and what changes the price. It should distinguish confirmed requirements from questions that need discovery.", "For uncertain products, a short paid discovery can reduce delivery risk before a full build commitment. Ask what evidence the estimate is based on and how scope changes will be handled."] },
     ],
   },
+  {
+    slug: "2026-web-development-pricing-benchmark",
+    category: "Market insights",
+    title: "2026 Web Development Pricing Benchmark: India vs. US, UK, Canada & Australia",
+    summary: "A practical benchmark of 2026 web-development market ranges across five major markets. Understand what a landing page, business website, e-commerce store and custom web app typically cost.",
+    readTime: "8 min read",
+    published: "2026-10-02",
+    sections: [
+      {
+        heading: "Why pricing varies so widely in 2026",
+        paragraphs: [
+          "If you have ever received quotes for the same website from three different providers and seen numbers that differ by 10x, you are not alone. A simple business website can cost around ₹20,000 in India, £3,000 in the UK or $10,000 in the United States — and all three quotes may be entirely legitimate.",
+          "The reason is not quality. It is operating economics, agency structure, scope interpretation and how much post-launch support is bundled into the initial price. This benchmark is intended as a planning reference for buyers who want to understand what they are actually paying for.",
+          "These are indicative 2026 market ranges, not fixed industry tariffs. Actual scope, provider type, design depth, integrations, content and support can move a quote materially.",
+        ],
+      },
+      {
+        heading: "India market ranges (2026)",
+        paragraphs: [
+          "The Indian market has matured. While basic template-based websites remain inexpensive, professional custom engineering now commands a clear premium.",
+          "Typical 2026 ranges: Landing page ₹8,000–₹25,000. Basic business website ₹20,000–₹60,000. Professional business website ₹50,000–₹1,50,000. E-commerce website ₹60,000–₹4,00,000+. Custom web application ₹2,00,000–₹15,00,000+.",
+          "What drives the range: number of pages, custom design depth, CMS choice, integrations such as payment gateways, CRMs and WhatsApp, SEO setup, and post-launch support.",
+        ],
+      },
+      {
+        heading: "United States market ranges (2026)",
+        paragraphs: [
+          "US pricing reflects a mature agency market with high labour costs, compliance expectations and deep specialisation. The floor for a professional build is significantly higher than in India.",
+          "Typical 2026 ranges: Small business website $3,000–$10,000. E-commerce website $5,000–$25,000+. Custom web application $25,000–$150,000+. Website maintenance $50–$500 per month.",
+          "What drives the range: agency overhead, project management layers, design systems, accessibility compliance such as ADA and WCAG, and ongoing retainer expectations.",
+        ],
+      },
+      {
+        heading: "United Kingdom market ranges (2026)",
+        paragraphs: [
+          "UK pricing sits between India and the US. Freelancers anchor the low end, while established agencies push higher for compliance, brand depth and integrations.",
+          "Typical 2026 ranges: Business website £500–£3,000. E-commerce website £3,000–£25,000+. Custom web application £15,000–£100,000+. Website maintenance £50–£300 per month.",
+          "What drives the range: GDPR compliance work, UK-specific payment integrations, brand strategy and multi-language requirements.",
+        ],
+      },
+      {
+        heading: "Canada market ranges (2026)",
+        paragraphs: [
+          "Canada closely mirrors the US market, with a slightly narrower upper band for custom applications. Maintenance retainers are a standard expectation.",
+          "Typical 2026 ranges: Business website CA$2,500–CA$10,000. E-commerce website CA$5,000–CA$25,000+. Custom web application CA$15,000–CA$40,000+. Website maintenance CA$100–CA$500 per month.",
+          "What drives the range: provincial regulations, bilingual English and French requirements, and integration with Canadian payment and logistics providers.",
+        ],
+      },
+      {
+        heading: "Australia market ranges (2026)",
+        paragraphs: [
+          "Australia has one of the widest ranges for custom web applications, reflecting the complexity of enterprise portals and SaaS products built there.",
+          "Typical 2026 ranges: Business website A$3,000–A$15,000. E-commerce website A$8,000–A$25,000+. Custom web application A$20,000–A$300,000+. Website maintenance A$100–A$500 per month.",
+          "What drives the range: distance-based vendor economics, GST compliance and enterprise-grade integration requirements.",
+        ],
+      },
+      {
+        heading: "What actually drives the cost difference",
+        paragraphs: [
+          "If the technical work is largely the same, why does a business website cost ₹50,000 in India and $10,000 in the US? Five structural factors explain the gap.",
+          "Labour economics: developer salaries differ by 5x to 10x across markets. This is the single largest input cost.",
+          "Agency overhead: Western agencies carry office, sales, project management and account management layers that Indian studios often do not.",
+          "Scope interpretation: a business website can mean five pages with a template, or twenty pages with custom design, CMS, SEO and analytics. Both quotes are technically correct.",
+          "Compliance and standards: GDPR, WCAG, ADA and provincial regulations add real work hours.",
+          "Ongoing support model: some providers bundle months of support into the initial price. Others charge separately.",
+        ],
+      },
+      {
+        heading: "What this means for buyers",
+        paragraphs: [
+          "Do not compare prices without comparing scope. A ₹20,000 quote and a ₹2,00,000 quote are often not the same project.",
+          "Ask for a written scope document. Pages, roles, integrations, design rounds and post-launch support should all be explicit.",
+          "Separate build from support. A one-time build fee is different from an ongoing maintenance retainer. Both are legitimate — just clarify which is which.",
+          "Value beats cheapness. The lowest quote is rarely the lowest total cost. Rework, delays and broken integrations erase the initial savings quickly.",
+          "Consider global partners. An India-based engineering studio with a modern stack such as Next.js, React, TypeScript and PostgreSQL can deliver the same technical quality as a Western agency at a fraction of the cost, provided scope and communication are handled properly.",
+        ],
+      },
+      {
+        heading: "Final thought",
+        paragraphs: [
+          "Pricing transparency in 2026 is still rare. Most agencies hide behind contact us for a quote, which makes it impossible for buyers to plan. This benchmark is a small contribution to fixing that — a starting point so you can walk into any conversation with realistic expectations.",
+          "If you would like to discuss a specific scope and get a clear, written estimate, we are one message away.",
+        ],
+      },
+    ],
+  },
 ] as const;
 
 export const resourceBySlug = (slug: string) => resources.find((resource) => resource.slug === slug);
