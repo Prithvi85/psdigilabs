@@ -21,13 +21,26 @@ export type NewLead = {
   updated_at: string;
 };
 
-export async function createLead(lead: NewLead): Promise<void> {
-  const databaseUrl = process.env.DATABASE_URL;
-  if (!databaseUrl) {
+/**
+ * Sanitizes a database connection string to defend against stray
+ * quotes, backslashes, or whitespace that can sneak in via environment
+ * variables (e.g. when a value is pasted with quotes into Vercel).
+ */
+function sanitizeDatabaseUrl(value: string | undefined): string {
+  if (!value) {
     throw new Error("DATABASE_URL is not configured");
   }
 
+  return value
+    .trim()
+    .replace(/^["']+/, "")
+    .replace(/["'\\]+$/, "");
+}
+
+export async function createLead(lead: NewLead): Promise<void> {
+  const databaseUrl = sanitizeDatabaseUrl(process.env.DATABASE_URL);
   const sql = neon(databaseUrl);
+
   await sql`
     INSERT INTO leads (
       id, full_name, email, phone, country, service, project_type,
