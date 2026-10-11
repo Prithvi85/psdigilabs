@@ -146,3 +146,18 @@ export async function getResourceBySlug(slug: string): Promise<ResourceContent |
     local ?? null,
   );
 }
+export type TestimonialContent = {
+  _id: string;
+  name: string;
+  role?: string;
+  company?: string;
+  quote: string;
+  rating?: number;
+  serviceReceived?: string;
+};
+
+const testimonialQuery = `*[_type == "testimonial" && published == true && consentGiven == true] | order(date desc) [0...12] { _id, name, role, company, quote, rating, serviceReceived }`;
+
+export async function getPublishedTestimonials(): Promise<TestimonialContent[]> {
+  return querySanity<TestimonialContent[]>(testimonialQuery, []);
+}

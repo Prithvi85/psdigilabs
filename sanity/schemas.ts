@@ -97,4 +97,40 @@ export const resourceSchema = defineType({
   preview: { select: { title: "title", subtitle: "category" } },
 });
 
-export const schemaTypes = [serviceSchema, caseStudySchema, resourceSchema];
+export const testimonialSchema = defineType({
+  name: "testimonial",
+  title: "Testimonial",
+  type: "document",
+  fields: [
+    defineField({ name: "name", type: "string", validation: (rule) => rule.required() }),
+    defineField({ name: "role", type: "string" }),
+    defineField({ name: "company", type: "string" }),
+    defineField({ name: "quote", title: "What went well", type: "text", validation: (rule) => rule.required() }),
+    defineField({
+      name: "rating",
+      type: "number",
+      validation: (rule) => rule.min(1).max(5).integer(),
+    }),
+    defineField({ name: "serviceReceived", title: "Service received", type: "string" }),
+    defineField({ name: "whatCouldBeBetter", title: "What could be better", type: "text" }),
+    defineField({ name: "date", type: "datetime" }),
+    defineField({
+      name: "consentGiven",
+      title: "Consent given to publish",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
+      name: "published",
+      title: "Published to website",
+      type: "boolean",
+      initialValue: false,
+      description: "Only testimonials with Published AND Consent both true will appear on the homepage slider.",
+    }),
+  ],
+  preview: {
+    select: { title: "name", subtitle: "quote" },
+  },
+});
+
+export const schemaTypes = [serviceSchema, caseStudySchema, resourceSchema, testimonialSchema];

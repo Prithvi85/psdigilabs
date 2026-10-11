@@ -2,11 +2,16 @@ import Link from "next/link";
 import { Reveal } from "@/components/brand/reveal";
 import { CaseStudyCard } from "@/components/work/case-study-card";
 import { ServiceCard } from "@/components/services/service-card";
+import { TestimonialsSlider } from "@/components/home/testimonials-slider";
 import { deliveryProcess } from "@/data/services";
-import { getCaseStudies, getServices } from "@/lib/sanity-content";
+import { getCaseStudies, getPublishedTestimonials, getServices } from "@/lib/sanity-content";
 
 export async function HomePage() {
-  const [caseStudies, services] = await Promise.all([getCaseStudies(), getServices()]);
+  const [caseStudies, services, testimonials] = await Promise.all([
+    getCaseStudies(),
+    getServices(),
+    getPublishedTestimonials(),
+  ]);
 
   return (
     <main className="studio-page">
@@ -100,6 +105,8 @@ export async function HomePage() {
       <section className="studio-stack-band">
         <div className="studio-container studio-stack-inner"><div><p className="studio-eyebrow">Engineering, not theatre</p><h2 className="studio-display">Quality is part of the build.</h2></div><div className="studio-stack-tags"><span>Next.js</span><span>React</span><span>Kotlin</span><span>Selenium</span><span>Postman</span><span>Make</span><span>Activepieces</span><span>PostgreSQL</span></div></div>
       </section>
+
+      {testimonials.length > 0 && <TestimonialsSlider testimonials={testimonials} />}
 
       <section className="studio-home-cta">
         <div className="studio-container studio-home-cta-inner"><div><p className="studio-eyebrow studio-eyebrow-light">Have a product in mind?</p><h2 className="studio-display">Let&apos;s make the next step clear.</h2><p>Tell us what is changing, what is getting in the way and what success should look like.</p></div><div><Link className="studio-button studio-button-lime" href="/contact">Start a project conversation <span aria-hidden="true">↗</span></Link><small>We&apos;ll aim to reply within one business day.</small></div></div>
