@@ -12,7 +12,6 @@ export const projectTypeOptions = [
   ["website-redesign", "Website rebuild or redesign"],
   ["mobile-app", "Mobile app"],
   ["quality-review", "Quality assurance / testing"],
-  ["workflow-automation", "Workflow automation"],
   ["other", "Other"],
 ] as const;
 export const timelineOptions = ["As soon as possible", "Within 2–4 weeks", "Within 1–2 months", "2+ months", "Just exploring"] as const;
