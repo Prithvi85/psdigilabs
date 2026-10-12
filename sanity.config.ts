@@ -12,7 +12,7 @@ if (!projectId) {
 
 const config = defineConfig({
   name: "psdigilabs",
-  title: "PSDigiLabs",
+  title: "PSDigiLabs Studio",
   basePath: "/studio",
   projectId,
   dataset,
