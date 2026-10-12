@@ -1,8 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { NextStudio } from "next-sanity/studio";
+import dynamic from "next/dynamic";
 import config from "@/sanity.config";
+
+const NextStudioNoSSR = dynamic(
+  () => import("next-sanity/studio").then((mod) => mod.NextStudio),
+  {
+    ssr: false,
+    loading: () => <div style={{ minHeight: "100vh" }} />,
+  }
+);
 
 export function StudioClient() {
   const [mounted, setMounted] = useState(false);
@@ -12,8 +20,8 @@ export function StudioClient() {
   }, []);
 
   if (!mounted) {
-    return <div />;
+    return <div style={{ minHeight: "100vh" }} />;
   }
 
-  return <NextStudio config={config} />;
+  return <NextStudioNoSSR config={config} />;
 }
