@@ -1,14 +1,10 @@
 import { defineConfig } from "sanity";
+import { structureTool } from "sanity/structure";
+import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schemas";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "aqs984m5";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
-
-if (!projectId) {
-  throw new Error(
-    "Missing NEXT_PUBLIC_SANITY_PROJECT_ID. Set it in .env.local and in Vercel environment variables."
-  );
-}
 
 const config = defineConfig({
   name: "psdigilabs",
@@ -16,6 +12,7 @@ const config = defineConfig({
   basePath: "/studio",
   projectId,
   dataset,
+  plugins: [structureTool(), visionTool()],
   schema: { types: schemaTypes },
 });
 

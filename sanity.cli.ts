@@ -2,7 +2,11 @@ import { defineCliConfig } from "sanity/cli";
 
 export default defineCliConfig({
   api: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "psdigilabs",
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+    projectId: "aqs984m5",
+    dataset: "production",
+  },
+  studioHost: "psdigilabs-cms",
+  deployment: {
+    appId: "xlfc4y461agqqzzbitsne5mt",
   },
 });
