@@ -1,21 +1,74 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PricingCards } from "@/components/pricing/pricing-cards";
-import { MarketReference } from "@/components/pricing/market-reference";
-import { Reveal } from "@/components/brand/reveal";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pricing & Engagement Models",
+export const metadata: Metadata = createPageMetadata({
+  title: "Website, App & UI/UX Design Pricing",
   description:
-    "Learn how PSDigiLabs scopes website, app, QA and automation projects. Every quote is based on agreed deliverables, constraints and support needs.",
-  alternates: { canonical: "/pricing" },
-};
+    "See starting price ranges for landing pages, websites, apps and standalone Figma UI/UX sprints from PSDigiLabs.",
+  path: "/pricing",
+});
 
-const costFactors = [
-  ["Scope and journeys", "Pages, user roles, key journeys, data models and the first useful release."],
-  ["Design and content", "Existing brand assets, content readiness, custom interfaces and accessibility needs."],
-  ["Integrations", "APIs, authentication, payments, analytics, CRM and existing system constraints."],
-  ["Quality and support", "Device coverage, automation depth, release coordination and post-launch ownership."],
+const packages = [
+  {
+    number: "01",
+    type: "Web development",
+    name: "Landing page",
+    price: "₹8,000–₹25,000",
+    description:
+      "A focused page for a product, service, campaign, or launch. Final scope depends on content, interactions, and integrations.",
+    scope: ["Single-page website", "Responsive implementation", "Scope agreed before work starts"],
+    service: "landing-page",
+    featured: false,
+  },
+  {
+    number: "02",
+    type: "Web & app development",
+    name: "Website or app",
+    price: "₹20,000–₹60,000",
+    description:
+      "A multi-page website or a defined web or Android app scope. Screens, features, integrations, and release needs shape the estimate.",
+    scope: ["Defined pages or app journeys", "Development scope agreed upfront", "Milestones set before build"],
+    service: "business-website",
+    featured: true,
+  },
+] as const;
+
+const decisionGuide = [
+  {
+    title: "Choose a landing page",
+    description:
+      "You need one focused page to explain an offer, collect enquiries, or support a launch.",
+  },
+  {
+    title: "Choose a website or app",
+    description:
+      "You need multiple pages, user journeys, product functionality, or an Android experience built.",
+  },
+  {
+    title: "Choose a Figma sprint",
+    description:
+      "You want to review and approve the interface before development, or need design files for your own team to build.",
+  },
+] as const;
+
+const milestones = [
+  {
+    title: "Deposit",
+    description: "Confirm the scope and reserve the start of the project.",
+  },
+  {
+    title: "Figma sign-off",
+    description: "Review and approve the agreed design direction before development.",
+  },
+  {
+    title: "Build",
+    description: "Development payments follow the milestones agreed in the proposal.",
+  },
+  {
+    title: "Handoff",
+    description: "Final files, access, and agreed deliverables are handed over after the final milestone is paid.",
+  },
 ] as const;
 
 export default function PricingPage() {
@@ -24,127 +77,205 @@ export default function PricingPage() {
       <section className="studio-interior-hero">
         <div className="studio-container studio-interior-hero-grid">
           <div>
-            <p className="studio-eyebrow">Pricing / engagement</p>
+            <p className="studio-eyebrow">Web, app &amp; design pricing</p>
             <h1 className="studio-display">
-              Clear scope.
+              Start with the build.
               <br />
-              <span>Useful estimate.</span>
+              <span>Know the range.</span>
             </h1>
           </div>
-          <p>
-            There is no one-size-fits-all price for custom engineering. We agree on the work,
-            constraints and delivery checkpoints, then provide a scoped quote before build starts.
+          <div>
+            <p>
+              Development is the main engagement. Add a digital brand kit where useful, or choose
+              a standalone Figma sprint to approve the interface before code begins. Every project
+              is scoped before work starts.
+            </p>
+            <Link className="studio-button studio-button-lime" href="/contact?service=website-development">
+              Discuss a project <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="studio-section" aria-labelledby="pricing-packages-title">
+        <div className="studio-container">
+          <div className="studio-section-intro">
+            <p className="studio-eyebrow">Starting price ranges</p>
+            <h2 id="pricing-packages-title" className="studio-display">
+              Development first. Design when you need it.
+            </h2>
+            <p>
+              These ranges are starting points, not fixed quotes. The agreed pages, screens,
+              functionality, and integrations set the final scope.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {packages.map((item) => (
+              <article
+                key={item.number}
+                className={`studio-pricing-card ${item.featured ? "border-[var(--studio-ink)] ring-1 ring-[var(--studio-ink)]" : ""}`}
+              >
+                <div className="studio-pricing-card-top">
+                  <span>{item.number} / {item.type}</span>
+                  {item.featured && <span>Web &amp; Android</span>}
+                </div>
+                <h2 className="studio-display">{item.name}</h2>
+                <p>{item.description}</p>
+                <div className="studio-price-note">
+                  <span>PROJECT RANGE</span>
+                  <strong>{item.price}</strong>
+                </div>
+                <ul>
+                  {item.scope.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+                <div className="mb-5 rounded-lg border border-[var(--studio-line)] bg-[#f5f7f1] p-3">
+                  <span className="inline-flex items-center gap-2 text-xs font-bold text-[var(--studio-ink)]">
+                    <span aria-hidden="true" className="grid size-4 place-items-center rounded border border-[var(--studio-lime-dark)] bg-white text-[var(--studio-lime-dark)]">✓</span>
+                    Optional brand &amp; asset add-on
+                  </span>
+                  <p className="mb-0 mt-2 text-sm font-bold">+₹4,999–₹9,999</p>
+                </div>
+                <Link
+                  className="studio-button studio-button-dark"
+                  href={`/contact?service=${item.service}`}
+                >
+                  Scope this project <span aria-hidden="true">↗</span>
+                </Link>
+              </article>
+            ))}
+
+            <article className="studio-pricing-card bg-[#f5f7f1]">
+              <div className="studio-pricing-card-top">
+                <span>03 / Standalone design</span>
+                <span>Figma sprint</span>
+              </div>
+              <h2 className="studio-display">UI/UX design sprint</h2>
+              <p>
+                Approve key screens and journeys in Figma before you commit to development. Your
+                team can build from the signed-off design.
+              </p>
+              <div className="studio-price-note">
+                <span>DEPENDING ON SCREEN COUNT</span>
+                <strong>₹12,000–₹25,000</strong>
+              </div>
+              <ul>
+                <li>Interactive Figma prototype</li>
+                <li>Two concepts and two revision rounds</li>
+                <li>Figma sign-off before any optional build</li>
+              </ul>
+              <Link
+                className="studio-button studio-button-dark"
+                href="/contact?service=other&project_type=new-product"
+              >
+                Discuss a Figma sprint <span aria-hidden="true">↗</span>
+              </Link>
+            </article>
+          </div>
+
+          <p className="mt-5 text-sm leading-relaxed text-[var(--studio-muted)]">
+            Brand &amp; asset add-on covers digital use. Print production and print vendor
+            coordination are not included. Development pricing does not include the standalone
+            Figma sprint unless it is added to the agreed scope.
           </p>
         </div>
       </section>
 
-      <section className="studio-section">
+      <section className="studio-section studio-section-paper" aria-labelledby="pricing-guide-title">
         <div className="studio-container">
           <div className="studio-section-intro">
-            <p className="studio-eyebrow">Typical engagement shapes</p>
-            <h2 className="studio-display">A starting point, not a fixed package.</h2>
-            <p>
-              Each engagement is shaped around the actual requirements. No commitment is made until
-              scope and assumptions are clear.
-            </p>
+            <p className="studio-eyebrow">Choose a starting point</p>
+            <h2 id="pricing-guide-title" className="studio-display">
+              Which one is right for me?
+            </h2>
           </div>
-          <PricingCards />
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {decisionGuide.map((item, index) => (
+              <article
+                key={item.title}
+                className="rounded-xl border border-[var(--studio-line)] bg-white p-5"
+              >
+                <span className="text-xs font-black tracking-widest text-[var(--studio-lime-dark)]">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
+                <p className="mb-0 text-sm leading-relaxed text-[var(--studio-muted)]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <MarketReference />
-
-      <section className="studio-section studio-section-paper">
+      <section className="studio-section" aria-labelledby="pricing-payments-title">
         <div className="studio-container studio-quote-process">
           <div>
-            <p className="studio-eyebrow">How estimates work</p>
-            <h2 className="studio-display">Four steps to a grounded quote.</h2>
+            <p className="studio-eyebrow">Milestone payments</p>
+            <h2 id="pricing-payments-title" className="studio-display">
+              Payments track approved work.
+            </h2>
             <p>
-              We make assumptions visible so you can decide what to do now, what to defer and what
-              needs discovery.
+              The proposal sets milestone amounts and due points before work begins. Handoff takes
+              place after the final milestone is paid; payment is not deferred until after delivery.
             </p>
           </div>
           <ol>
-            {[
-              "Share the goal and context",
-              "Clarify scope and constraints",
-              "Review milestones and assumptions",
-              "Approve a proposal before delivery",
-            ].map((step, index) => (
-              <li key={step}>
-                <span>0{index + 1}</span>
-                {step}
+            {milestones.map((milestone, index) => (
+              <li key={milestone.title} className="items-start py-3">
+                <span className="mt-1">0{index + 1}</span>
+                <div>
+                  <strong className="block">{milestone.title}</strong>
+                  <p className="mb-0 mt-1 text-sm font-normal leading-relaxed text-[var(--studio-muted)]">
+                    {milestone.description}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="studio-section">
-        <div className="studio-container">
-          <div className="studio-section-intro">
-            <p className="studio-eyebrow">What changes the estimate</p>
-            <h2 className="studio-display">Cost follows the work.</h2>
-          </div>
-          <div className="studio-cost-grid">
-            {costFactors.map(([title, text], index) => (
-              <Reveal key={title} delay={index * 50}>
-                <article>
-                  <span>0{index + 1}</span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="studio-section studio-section-paper">
+      <section className="studio-section studio-section-paper" aria-labelledby="pricing-faq-title">
         <div className="studio-container studio-faq-layout">
           <div>
             <p className="studio-eyebrow">Pricing questions</p>
-            <h2 className="studio-display">A few useful details.</h2>
+            <h2 id="pricing-faq-title" className="studio-display">
+              Cost, scope, and payment.
+            </h2>
           </div>
           <div className="studio-faq-list">
             <details>
               <summary>
-                Are the engagement cards fixed-price packages?
+                Why does the price vary within each range?
                 <span aria-hidden="true">+</span>
               </summary>
               <p>
-                No. They describe common project shapes. We confirm deliverables, assumptions and
-                cost in a scoped proposal before work begins.
+                Page or screen count, content readiness, functionality, integrations, and delivery
+                requirements change the amount of work. We confirm these in a written scope so the
+                estimate reflects your project.
               </p>
             </details>
             <details>
               <summary>
-                Do you work with teams outside India?
+                Can you match a cheaper quote?
                 <span aria-hidden="true">+</span>
               </summary>
               <p>
-                Yes. PSDigiLabs is based in India and works with teams in India and internationally.
-                Time zone, communication and delivery expectations are discussed during scoping.
+                We do not reduce a quote by removing the work needed to meet the agreed requirements.
+                If the estimate is outside your budget, we can define a smaller first milestone and
+                make clear what is deferred.
               </p>
             </details>
             <details>
               <summary>
-                Can we begin with a small engagement?
+                Do I pay after the project is delivered?
                 <span aria-hidden="true">+</span>
               </summary>
               <p>
-                Where practical, we can define a focused first milestone or discovery phase before
-                committing to a larger build.
-              </p>
-            </details>
-            <details>
-              <summary>
-                What happens after I request a quote?
-                <span aria-hidden="true">+</span>
-              </summary>
-              <p>
-                We review your brief and aim to respond within one business day with clarifying
-                questions or a next step.
+                No. Payment is milestone-based: deposit, Figma sign-off, build milestones, then
+                handoff after the final milestone payment. The amounts and due points are agreed
+                before work starts.
               </p>
             </details>
           </div>
@@ -154,9 +285,12 @@ export default function PricingPage() {
       <section className="studio-bottom-cta">
         <div className="studio-container studio-bottom-cta-inner">
           <div>
-            <p className="studio-eyebrow studio-eyebrow-light">Start with the brief</p>
-            <h2 className="studio-display">Tell us what needs to work better.</h2>
-            <p>We&apos;ll help turn the context into a useful first scope.</p>
+            <p className="studio-eyebrow studio-eyebrow-light">Have a scope in mind?</p>
+            <h2 className="studio-display">Get a price tied to the work.</h2>
+            <p>
+              Tell us what you need to launch or improve. We&apos;ll clarify the scope, milestones,
+              and price before delivery begins.
+            </p>
           </div>
           <Link className="studio-button studio-button-lime" href="/contact">
             Request a scoped quote <span aria-hidden="true">↗</span>

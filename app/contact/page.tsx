@@ -46,7 +46,7 @@ export default async function ContactPage({
         </div>
       </section>
 
-      <section className="studio-section">
+      <section id="project-enquiry" className="studio-section">
         <div className="studio-container studio-contact-grid">
           <div className="studio-contact-copy">
             <p className="studio-eyebrow">Project enquiry</p>
