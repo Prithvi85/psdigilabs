@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import {
   PROFILE_DOWNLOAD_FILENAME,
   PROFILE_DOWNLOAD_URL,
@@ -56,31 +57,30 @@ export const HeroSection = () => {
             <span className="hero-engineering-badge">
               <span className="hero-engineering-badge-dot" aria-hidden="true" />
               <span className="hero-engineering-badge-text">
-                DIGITAL PRODUCT ENGINEERING
+                UI/UX & DIGITAL BRAND DESIGN
               </span>
             </span>
           </div>
 
-          {/* Headline - Aligned with commercial search intent */}
+          {/* Headline - Aligned with design-first positioning */}
           <h1 className="mb-4 text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
-            Building Digital Products That{" "}
-            <span className="font-black text-[#1769e0]">Work Harder.</span>
+            Product engineering with{" "}
+            <span className="font-black text-[#1769e0]">design built in.</span>
           </h1>
 
-          {/* Subparagraph - Keyword-rich value proposition */}
+          {/* Subparagraph - Emphasizing Figma and deployment-ready assets */}
           <p className="mb-8 max-w-lg text-sm leading-relaxed text-slate-700 sm:text-base">
-            PSDigiLabs builds custom Next.js websites, native Android applications, automated software testing suites, and workflow automation solutions for businesses in India and worldwide.
+            Figma-approved UI/UX, digital brand systems, and deployment-ready assets — so your web or Android product ships faster and looks consistent from day one.
           </p>
 
           {/* Action Buttons */}
           <div className="hero-action-row">
-            <a
-              href="#projects"
-              onClick={handleExploreWork}
+            <Link
+              href="/design"
               className="hero-action hero-action-primary"
             >
-              EXPLORE OUR WORK <span className="hero-action-icon" aria-hidden="true">&#8594;</span>
-            </a>
+              EXPLORE UI/UX DESIGN <span className="hero-action-icon" aria-hidden="true">&#8594;</span>
+            </Link>
 
             <a
               href={PROFILE_DOWNLOAD_URL}
