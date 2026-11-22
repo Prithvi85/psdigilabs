@@ -6,6 +6,8 @@ import "./brand.css";
 import { Assistant } from "@/components/chatbot/assistant";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { Icon } from "@/components/ui/icon";
+import { contactWhatsAppUrl } from "@/lib/site-contact";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
@@ -99,7 +101,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL;
 
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${plusJakartaSans.variable}`}>
@@ -114,17 +115,17 @@ export default function RootLayout({
         {children}
         <Footer />
         <Assistant />
-        {whatsappUrl && (
-          <a
-            className="studio-whatsapp-chat"
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat with PSDigiLabs on WhatsApp"
-          >
-            WhatsApp <span aria-hidden="true">↗</span>
-          </a>
-        )}
+        <a
+          className="studio-whatsapp-chat"
+          href={contactWhatsAppUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with PSDigiLabs on WhatsApp"
+        >
+          <Icon name="whatsapp" className="studio-whatsapp-icon" width={18} height={18} />
+          <span>WhatsApp</span>
+          <span aria-hidden="true">↗</span>
+        </a>
 
         {gaId && (
           <>

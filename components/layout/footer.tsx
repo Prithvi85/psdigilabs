@@ -1,4 +1,6 @@
 import { navigation } from "@/data/navigation";
+import { contactPhone, contactPhoneDisplay, contactWhatsAppUrl } from "@/lib/site-contact";
+import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -28,6 +30,12 @@ export function Footer() {
           <div className="studio-footer-contact">
             <h2>Start a conversation</h2>
             <a href="mailto:contact@psdigilabs.in">contact@psdigilabs.in <span aria-hidden="true">↗</span></a>
+            <a href={`tel:${contactPhone}`}>Call {contactPhoneDisplay} <span aria-hidden="true">↗</span></a>
+            <a href={contactWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="studio-footer-link-icon">
+              <Icon name="whatsapp" width={15} height={15} />
+              <span>WhatsApp {contactPhoneDisplay}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
             <p>Kolkata, India<br />Working with teams worldwide</p>
             <Link href="/contact" className="studio-footer-cta">Tell us what you&apos;re building <span aria-hidden="true">↗</span></Link>
             {newsletterUrl && <a href={newsletterUrl} target="_blank" rel="noopener noreferrer">Subscribe to studio notes <span aria-hidden="true">↗</span></a>}

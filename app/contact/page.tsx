@@ -1,6 +1,8 @@
 import { ContactForm } from "@/components/contact/contact-form";
+import { Icon } from "@/components/ui/icon";
 import { projectTypeOptions, serviceOptions, timelineOptions } from "@/data/leads";
 import { createPageMetadata } from "@/lib/seo";
+import { contactPhone, contactPhoneDisplay, contactWhatsAppUrl } from "@/lib/site-contact";
 
 export const metadata = createPageMetadata({
   title: "Start a Project Conversation",
@@ -9,7 +11,6 @@ export const metadata = createPageMetadata({
   path: "/contact",
 });
 
-const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL;
 const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL;
 
 type ContactSearchParams = {
@@ -54,8 +55,15 @@ export default async function ContactPage({
             <p>Share the goals, users, important functionality and timeline. A useful first estimate depends on the actual scope, integrations and delivery requirements.</p>
             <div className="studio-contact-links">
               <a href="mailto:contact@psdigilabs.in"><span>Email</span><strong>contact@psdigilabs.in</strong><span aria-hidden="true">↗</span></a>
+              <a href={`tel:${contactPhone}`}><span>Call</span><strong>{contactPhoneDisplay}</strong><span aria-hidden="true">↗</span></a>
+              <a href={contactWhatsAppUrl} target="_blank" rel="noopener noreferrer">
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                  <Icon name="whatsapp" width={14} height={14} style={{ color: "#25D366" }} /> WhatsApp
+                </span>
+                <strong>Message {contactPhoneDisplay}</strong>
+                <span aria-hidden="true">↗</span>
+              </a>
               <div><span>Based in</span><strong>Kolkata, India<br />Working worldwide</strong></div>
-              {whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><strong>Message the studio</strong><span aria-hidden="true">↗</span></a>}
               {bookingUrl && <a href={bookingUrl} target="_blank" rel="noopener noreferrer"><span>Book a call</span><strong>Choose a time</strong><span aria-hidden="true">↗</span></a>}
             </div>
           </div>
