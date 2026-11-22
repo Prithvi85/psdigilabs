@@ -523,6 +523,10 @@ textarea.studio-control { height: auto; min-height: 9rem; resize: vertical; }
 .assistant-root :focus-visible { outline-color: var(--studio-lime-dark); }
 .studio-whatsapp-chat { position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 4.2rem); z-index: 999; display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; gap: 0.65rem; padding: 0.65rem 0.9rem; border: 1px solid var(--studio-line); border-radius: 0.55rem; background: var(--studio-white); color: var(--studio-ink); box-shadow: 0 0.7rem 1.5rem rgba(21,26,22,0.12); font-size: 0.76rem; font-weight: 800; }
 .studio-whatsapp-chat:hover { border-color: var(--studio-lime-dark); background: var(--studio-lime); }
+.studio-whatsapp-chat .studio-whatsapp-icon { color: #25D366; flex-shrink: 0; }
+.studio-whatsapp-chat:hover .studio-whatsapp-icon { color: var(--studio-ink); }
+.studio-footer-link-icon { display: inline-flex; align-items: center; gap: 0.45rem; }
+.studio-footer-link-icon svg { color: #25D366; flex-shrink: 0; }
 
 .studio-footer { padding-block: 3.5rem 1.3rem; background: #111612; color: #eef1ea; }
 .studio-footer-top { display: grid; grid-template-columns: 5fr 3fr 4fr; gap: 3rem; padding-bottom: 3rem; }
