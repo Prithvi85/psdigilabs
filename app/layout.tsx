@@ -6,6 +6,7 @@ import "./brand.css";
 import { Assistant } from "@/components/chatbot/assistant";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { WhatsAppWidget } from "@/components/whatsapp/whatsapp-widget";
 import { Icon } from "@/components/ui/icon";
 import { contactWhatsAppUrl } from "@/lib/site-contact";
 
@@ -115,17 +116,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Assistant />
-        <a
-          className="studio-whatsapp-chat"
-          href={contactWhatsAppUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with PSDigiLabs on WhatsApp"
-        >
-          <Icon name="whatsapp" className="studio-whatsapp-icon" width={18} height={18} />
-          <span>WhatsApp</span>
-          <span aria-hidden="true">↗</span>
-        </a>
+        <WhatsAppWidget />
 
         {gaId && (
           <>
