@@ -980,3 +980,51 @@ textarea.studio-control { height: auto; min-height: 9rem; resize: vertical; }
     height: 2.85rem;
   }
 }
+
+/* ------------------------------------------------------------------
+   Homepage Site Audit section
+   ------------------------------------------------------------------ */
+.studio-audit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 32.5rem);
+  align-items: center;
+  gap: 3rem;
+}
+
+.studio-audit-copy h2 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: 2.55rem;
+  font-weight: 750;
+  line-height: 1.1;
+}
+
+.studio-audit-copy > p:not(.studio-eyebrow) {
+  max-width: 36rem;
+  margin: 1rem 0 0;
+  color: var(--studio-muted);
+  line-height: 1.7;
+}
+
+.studio-audit-widget {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .studio-audit-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .studio-audit-widget {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .studio-audit-copy h2 {
+    font-size: 2rem;
+  }
+}

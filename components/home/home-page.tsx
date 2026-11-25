@@ -3,6 +3,7 @@ import { Reveal } from "@/components/brand/reveal";
 import { CaseStudyCard } from "@/components/work/case-study-card";
 import { ServiceCard } from "@/components/services/service-card";
 import { TestimonialsSlider } from "@/components/home/testimonials-slider";
+import SiteAuditWidget from "@/components/SiteAuditWidget";
 import { deliveryProcess } from "@/data/services";
 import { getCaseStudies, getPublishedTestimonials, getServices } from "@/lib/sanity-content";
 
@@ -196,6 +197,23 @@ export async function HomePage() {
             <Link className="studio-button studio-button-lime" href="/contact">Start a project conversation <span aria-hidden="true">↗</span></Link>
             <small>We&apos;ll aim to reply within one business day.</small>
           </div>
+        </div>
+      </section>
+
+      <section className="studio-section studio-section-paper" aria-labelledby="home-audit-title">
+        <div className="studio-container studio-audit-grid">
+          <Reveal className="studio-audit-copy">
+            <p className="studio-eyebrow">Free website audit</p>
+            <h2 id="home-audit-title" className="studio-display">
+              Check your site&apos;s speed, SEO &amp; conversion readiness.
+            </h2>
+            <p>
+              Run an instant 15-second scan to uncover technical bottlenecks, SEO gaps, and conversion blockers before your next release.
+            </p>
+          </Reveal>
+          <Reveal className="studio-audit-widget" delay={70}>
+            <SiteAuditWidget />
+          </Reveal>
         </div>
       </section>
     </main>
