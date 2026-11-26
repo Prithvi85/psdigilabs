@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AutopilotGate } from "@/components/autopilot/autopilot-gate";
 import { AutopilotStudio } from "@/components/autopilot/autopilot-studio";
 import { isAutopilotAuthenticated, isAutopilotConfigured } from "@/lib/autopilot/auth";
+import { listRecentOutreachLogs } from "@/lib/autopilot/outreach-repository";
 import { createPageMetadata } from "@/lib/seo";
 
 const baseMetadata = createPageMetadata({
@@ -21,6 +22,10 @@ export const dynamic = "force-dynamic";
 export default async function AutopilotPage() {
   const configured = isAutopilotConfigured();
   const authenticated = await isAutopilotAuthenticated();
+  const emailSendingConfigured = Boolean(
+    process.env.RESEND_API_KEY?.trim() && process.env.LEAD_NOTIFICATION_FROM?.trim()
+  );
+  const initialLogs = authenticated ? await listRecentOutreachLogs(20) : [];
 
   return (
     <main className="studio-page">
@@ -33,14 +38,21 @@ export default async function AutopilotPage() {
             </h1>
           </div>
           <p>
-            Private owner console for www.psdigilabs.in. Only authenticated sessions can scan local prospects, view outreach templates, or download playbooks and workflow blueprints.
+            Private owner console for www.psdigilabs.in. Discovers real businesses, extracts contact emails &amp; funnel gaps automatically, and dispatches tailored PSDigiLabs outreach.
           </p>
         </div>
       </section>
 
       <section className="studio-section">
         <div className="studio-container">
-          {authenticated ? <AutopilotStudio /> : <AutopilotGate configured={configured} />}
+          {authenticated ? (
+            <AutopilotStudio
+              emailSendingConfigured={emailSendingConfigured}
+              initialLogs={initialLogs}
+            />
+          ) : (
+            <AutopilotGate configured={configured} />
+          )}
         </div>
       </section>
     </main>

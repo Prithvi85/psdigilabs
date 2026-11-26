@@ -53,10 +53,11 @@ export interface ProspectLead {
   opportunityReason: string;
   websiteStatus: "missing" | "unreachable" | "http-only" | "live";
   hasMxRecord: boolean | null;
+  detectedGaps: string[];
 }
 
 export interface ProspectRadarResult {
-  source: "openstreetmap-live" | "fallback-queries";
+  source: "photon-osm-live" | "fallback-queries";
   city: string;
   niche: string;
   osmCount: number;
@@ -66,6 +67,17 @@ export interface ProspectRadarResult {
     label: string;
     query: string;
   }[];
+}
+
+export interface OutreachLogEntry {
+  id: string;
+  prospectName: string;
+  recipientEmail: string;
+  city: string;
+  niche: string;
+  subject: string;
+  status: "sent" | "failed";
+  sentAt: string;
 }
 
 export interface IcpProfile {
