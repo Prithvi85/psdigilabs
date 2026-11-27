@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-type IconName = "arrow" | "automation" | "check" | "external" | "globe" | "mail" | "map" | "mobile" | "project" | "test" | "web" | "whatsapp";
+type IconName = "arrow" | "automation" | "check" | "external" | "globe" | "instagram" | "linkedin" | "mail" | "map" | "mobile" | "project" | "test" | "web" | "whatsapp";
 
 const paths: Record<Exclude<IconName, "whatsapp">, React.ReactNode> = {
   arrow: <><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></>,
@@ -8,6 +8,8 @@ const paths: Record<Exclude<IconName, "whatsapp">, React.ReactNode> = {
   check: <path d="m5 12 4 4L19 6" />,
   external: <><path d="M15 4h5v5" /><path d="m10 14 10-10" /><path d="M20 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6" /></>,
   globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></>,
+  instagram: <><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" /><path d="M17.5 6.5h.01" /></>,
+  linkedin: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></>,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>,
   map: <><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></>,
   mobile: <><rect x="7" y="2" width="10" height="20" rx="2" /><path d="M11 18h2" /></>,

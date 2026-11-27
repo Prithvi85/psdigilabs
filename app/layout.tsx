@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { WhatsAppWidget } from "@/components/whatsapp/whatsapp-widget";
 import { Icon } from "@/components/ui/icon";
-import { contactWhatsAppUrl } from "@/lib/site-contact";
+import { contactInstagramUrl, contactLinkedInUrl, contactWhatsAppUrl } from "@/lib/site-contact";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
@@ -29,6 +29,7 @@ const structuredData = {
       url: `${siteUrl}/`,
       logo: `${siteUrl}/images/branding/logo.png`,
       description: defaultDescription,
+      sameAs: [contactLinkedInUrl, contactInstagramUrl],
     },
     {
       "@type": "WebSite",

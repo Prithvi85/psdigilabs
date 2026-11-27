@@ -1,5 +1,11 @@
 import { navigation } from "@/data/navigation";
-import { contactPhone, contactPhoneDisplay, contactWhatsAppUrl } from "@/lib/site-contact";
+import {
+  contactInstagramUrl,
+  contactLinkedInUrl,
+  contactPhone,
+  contactPhoneDisplay,
+  contactWhatsAppUrl,
+} from "@/lib/site-contact";
 import { Icon } from "@/components/ui/icon";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +22,30 @@ export function Footer() {
               <Image src="/images/branding/logo.png" alt="PSDigiLabs" width={1302} height={1208} className="studio-logo" />
             </Link>
             <p>Digital products, engineered with care.</p>
+            <div className="studio-footer-socials" aria-label="Social media">
+              <a
+                href={contactLinkedInUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PSDigiLabs on LinkedIn"
+                className="studio-footer-social-link"
+              >
+                <Icon name="linkedin" width={16} height={16} />
+                <span>LinkedIn</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href={contactInstagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PSDigiLabs on Instagram"
+                className="studio-footer-social-link"
+              >
+                <Icon name="instagram" width={16} height={16} />
+                <span>Instagram</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
 
           <nav aria-label="Footer navigation" className="studio-footer-links">

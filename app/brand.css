@@ -530,6 +530,10 @@ textarea.studio-control { height: auto; min-height: 9rem; resize: vertical; }
 .studio-footer { padding-block: 3.5rem 1.3rem; background: #111612; color: #eef1ea; }
 .studio-footer-top { display: grid; grid-template-columns: 5fr 3fr 4fr; gap: 3rem; padding-bottom: 3rem; }
 .studio-footer-brand > p { max-width: 19rem; margin: 1rem 0 0; color: #aeb7ad; font-size: 0.85rem; }
+.studio-footer-socials { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.15rem; }
+.studio-footer-social-link { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.78rem; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 9999px; color: #d1d7cf; font-size: 0.78rem; font-weight: 600; transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease; }
+.studio-footer-social-link svg { flex-shrink: 0; }
+.studio-footer-social-link:hover { border-color: var(--studio-lime); color: var(--studio-lime); background: rgba(191, 255, 0, 0.06); }
 .studio-footer-links,
 .studio-footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
 .studio-footer-links h2,
